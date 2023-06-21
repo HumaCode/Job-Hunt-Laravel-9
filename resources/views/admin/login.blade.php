@@ -34,13 +34,19 @@
                                     <h4 class="text-center">Admin Panel Login</h4>
                                 </div>
                                 <div class="card-body card-body-auth">
+
+
+                                    @if (session()->get('success'))
+                                    <div class="alert alert-success mt-2">{{ session()->get('success') }}</div>
+                                    @endif
+
                                     <form method="POST" action="{{ route('admin_login_submit') }}">
                                         @csrf
 
                                         <div class="form-group">
                                             <input type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                                placeholder="Email Address" value="" autofocus>
+                                                placeholder="Email Address" value="{{ old('email') }}" autofocus>
                                             @error('email')
                                             <div class="text-danger mt-2">
                                                 {{ $message }}

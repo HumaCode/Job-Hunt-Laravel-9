@@ -31,10 +31,23 @@
                                     <h4 class="text-center">Reset Password</h4>
                                 </div>
                                 <div class="card-body card-body-auth">
-                                    <form method="POST" action="">
+                                    <form method="POST" action="{{ route('forget-password-submit') }}">
+                                        @csrf
+
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email"
-                                                placeholder="Email Address" value="" autofocus>
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                placeholder="Email Address" value="{{ old('email') }}" autofocus>
+
+                                            @error('email')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+
+                                            @if (session()->get('error'))
+                                            <div class="text-danger mt-2">{{ session()->get('error') }}</div>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-lg btn-block">
@@ -43,7 +56,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div>
-                                                <a href="login.html">
+                                                <a href="{{ route('admin_login') }}">
                                                     Back to login page
                                                 </a>
                                             </div>
