@@ -34,14 +34,32 @@
                                     <h4 class="text-center">Admin Panel Login</h4>
                                 </div>
                                 <div class="card-body card-body-auth">
-                                    <form method="POST" action="index.html">
+                                    <form method="POST" action="{{ route('admin_login_submit') }}">
+                                        @csrf
+
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email"
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
                                                 placeholder="Email Address" value="" autofocus>
+                                            @error('email')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+
+                                            @if (session()->get('error'))
+                                            <div class="text-danger mt-2">{{ session()->get('error') }}</div>
+                                            @endif
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" name="password"
-                                                placeholder="Password">
+                                            <input type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" placeholder="Password">
+                                            @error('password')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary btn-lg btn-block">
