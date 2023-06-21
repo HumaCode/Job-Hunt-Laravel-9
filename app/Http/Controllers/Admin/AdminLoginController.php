@@ -7,6 +7,7 @@ use App\Mail\Websitemail;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminLoginController extends Controller
 {
@@ -62,7 +63,7 @@ class AdminLoginController extends Controller
         $admin_data->token = $token;
         $admin_data->update();
 
-        $reset_link     = url('admin/reset_password/' . $token . '/' . $request->email);
+        $reset_link     = url('admin/reset-password/' . $token . '/' . $request->email);
         $subject        = 'Reset Password';
         $message        = 'Please click on the following link <br>';
         $message        .= '<a href="' . $reset_link . '">Click Hire<br>';
@@ -71,5 +72,31 @@ class AdminLoginController extends Controller
         \Mail::to($request->email)->send(new Websitemail($subject, $message));
 
         return redirect()->route('admin_login')->with('success', 'Please check your email and follow the step there');
+    }
+
+    public function reset_password($token, $email)
+    {
+        $admin_data = Admin::where('token', $token)->where('email', $email)->first();
+        if (!$admin_data) {
+            return redirect()->route('admin_login')->with('error', 'Token tidak valid');
+        }
+
+        return view('admin.reset_password', compact('token', 'email'));
+    }
+
+    public function reset_password_submit(Request $request)
+    {
+        $request->validate([
+            'password'          => 'required',
+            'retype_password'   => 'required|same:password',
+        ]);
+
+        $admin_data = Admin::where('token', $request->token)->where('email', $request->email)->first();
+        $admin_data->password = Hash::make($request->password);
+        $admin_data->token = '';
+        $admin_data->update();
+
+
+        return redirect()->route('admin_login')->with('success', 'Password is reset successfully');
     }
 }

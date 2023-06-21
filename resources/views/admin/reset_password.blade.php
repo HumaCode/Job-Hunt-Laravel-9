@@ -28,36 +28,19 @@
                             class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                             <div class="card card-primary border-box">
                                 <div class="card-header card-header-auth">
-                                    <h4 class="text-center">Admin Panel Login</h4>
+                                    <h4 class="text-center">Reset Password</h4>
                                 </div>
                                 <div class="card-body card-body-auth">
-
-
-                                    @if (session()->get('success'))
-                                    <div class="alert alert-success mt-2">{{ session()->get('success') }}</div>
-                                    @endif
-
-                                    <form method="POST" action="{{ route('admin_login_submit') }}">
+                                    <form method="POST" action="{{ route('reset_password_submit') }}">
                                         @csrf
 
-                                        <div class="form-group">
-                                            <input type="email"
-                                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                                placeholder="Email Address" value="{{ old('email') }}" autofocus>
-                                            @error('email')
-                                            <div class="text-danger mt-2">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        <input type="hidden" name="token" value="{{ $token }}">
+                                        <input type="hidden" name="email" value="{{ $email }}">
 
-                                            @if (session()->get('error'))
-                                            <div class="text-danger mt-2">{{ session()->get('error') }}</div>
-                                            @endif
-                                        </div>
                                         <div class="form-group">
                                             <input type="password"
                                                 class="form-control @error('password') is-invalid @enderror"
-                                                name="password" placeholder="Password">
+                                                name="password" placeholder="Password" value="" autofocus>
                                             @error('password')
                                             <div class="text-danger mt-2">
                                                 {{ $message }}
@@ -65,16 +48,19 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                                Login
-                                            </button>
+                                            <input type="password"
+                                                class="form-control  @error('retype_password') is-invalid @enderror"
+                                                name="retype_password" placeholder="Change Password" value="">
+                                            @error('retype_password')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <div>
-                                                <a href="{{ route('admin_forget_password') }}">
-                                                    Forget Password?
-                                                </a>
-                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                                Update Password
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
