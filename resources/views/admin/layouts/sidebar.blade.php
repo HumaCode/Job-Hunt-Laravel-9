@@ -9,7 +9,8 @@
 
         <ul class="sidebar-menu">
 
-            <li class="active"><a class="nav-link" href="{{ route('admin_home') }}"><i
+            <li class="active"><a class="nav-link" href="{{ route('admin_home') }}" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Dashboard"><i
                         class="fas fa-hand-point-right"></i>
                     <span>Dashboard</span></a></li>
 
@@ -24,7 +25,9 @@
                 </ul>
             </li>
 
-            <li class=""><a class="nav-link" href="setting.html"><i class="fas fa-hand-point-right"></i>
+            <li class=""><a class="nav-link" href="setting.html" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Setting"><i
+                        class="fas fa-hand-point-right"></i>
                     <span>Setting</span></a></li>
 
             <li class=""><a class="nav-link" href="form.html"><i class="fas fa-hand-point-right"></i>
