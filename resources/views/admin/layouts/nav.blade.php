@@ -13,6 +13,10 @@
 
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
+                <li class="nav-link">
+                    <a href="{{ route('home') }}" class="btn btn-warning">Frontend</a>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img alt="image"
@@ -27,7 +31,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('admin_logout') }}" class="dropdown-item has-icon text-danger">
+                            <a href="{{ route('admin_logout') }}" class="dropdown-item has-icon">
                                 <i class="fas fa-sign-out-alt"></i> Logout
                             </a>
                         </li>
