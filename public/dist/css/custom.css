@@ -449,3 +449,7 @@ hr.invoice-above-table {
 .was-validated .form-control:invalid {
     border-color: #dc3545 !important;
 }
+
+.btn-block {
+    width: 100% !important;
+}
