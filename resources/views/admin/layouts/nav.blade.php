@@ -16,7 +16,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img alt="image"
-                            src="{{ (auth()->user()->photo == null) ? asset('uploads/default.png') : \Storage::url(auth()->user()->photo) }}"
+                            src="{{ (auth()->user()->photo == null) ? asset('dist/img/user.png') : \Storage::url(auth()->user()->photo) }}"
                             class="rounded-circle-custom">
                         <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div>
                     </a>

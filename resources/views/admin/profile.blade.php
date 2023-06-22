@@ -15,7 +15,7 @@
 
                     <div class="row">
                         <div class="col-md-3 mb-2">
-                            <img src="{{ ($profile->photo == null) ? asset('uploads/default.png') : \Storage::url($profile->photo) }}"
+                            <img src="{{ ($profile->photo == null) ? asset('dist/img/user.png') : \Storage::url($profile->photo) }}"
                                 alt="" class="profile-photo w_100_p" id="showImage">
                             <input type="file" class="form-control mt_10" name="photo" id="photo">
                         </div>
