@@ -33,5 +33,5 @@ Route::post('/admin/reset-password-submit', [AdminLoginController::class, 'reset
 
 
 // Profil
-Route::get('/admin/edit-profile', [AdminProfileController::class, 'edit_profile'])->name('edit_profile')->middleware('admin:admin');
+Route::get('/admin/admin-profile', [AdminProfileController::class, 'admin_profile'])->name('admin_profile')->middleware('admin:admin');
 Route::post('/admin/edit-profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit')->middleware('admin:admin');

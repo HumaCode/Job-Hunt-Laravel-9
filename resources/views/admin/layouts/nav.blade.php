@@ -1,31 +1,40 @@
 <div class="navbar-bg"></div>
-<nav class="navbar navbar-expand-lg main-navbar">
+
+<nav class="navbar navbar-expand-lg">
     <form class="form-inline mr-auto">
-        <ul class="navbar-nav mr-3">
+        <ul class="navbar-nav mr-3 ">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
                         class="fas fa-search"></i></a></li>
         </ul>
     </form>
-    <ul class="navbar-nav navbar-right">
-        <li class="nav-link">
-            <a href="" target="_blank" class="btn btn-warning">Front End</a>
-        </li>
-        <li class="dropdown"><a href="#" data-toggle="dropdown"
-                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image"
-                    src="{{ (auth()->user()->photo == null) ? asset('uploads/default.png') : \Storage::url(auth()->user()->photo) }}"
-                    class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a href="{{ route('edit_profile') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Edit Profile
-                </a>
-                <a href="{{ route('admin_logout') }}" class="dropdown-item has-icon text-danger">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-            </div>
-        </li>
-    </ul>
+
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img alt="image"
+                            src="{{ (auth()->user()->photo == null) ? asset('uploads/default.png') : \Storage::url(auth()->user()->photo) }}"
+                            class="rounded-circle-custom">
+                        <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ route('admin_profile') }}" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i> Edit Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin_logout') }}" class="dropdown-item has-icon text-danger">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>

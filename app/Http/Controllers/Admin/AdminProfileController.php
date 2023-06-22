@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class AdminProfileController extends Controller
 {
-    public function edit_profile()
+    public function admin_profile()
     {
         $profile = Admin::findOrFail(auth()->user()->id);
 

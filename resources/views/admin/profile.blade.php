@@ -14,7 +14,7 @@
                     <input type="hidden" name="id" value="{{ $profile->id }}">
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <img src="{{ ($profile->photo == null) ? asset('uploads/default.png') : \Storage::url($profile->photo) }}"
                                 alt="" class="profile-photo w_100_p" id="showImage">
                             <input type="file" class="form-control mt_10" name="photo" id="photo">

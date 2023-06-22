@@ -453,3 +453,14 @@ hr.invoice-above-table {
 .btn-block {
     width: 100% !important;
 }
+
+.w-100-p {
+    width: 100%;
+}
+
+.rounded-circle-custom {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 4px;
+}
