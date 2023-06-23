@@ -25,22 +25,32 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="mb-4">
                                         <label class="form-label " for="title">Job Title *</label>
                                         <input type="text" class="form-control" name="title" value="Job Title">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="mb-4">
                                         <label class="form-label " for="title">Job Location *</label>
                                         <input type="text" class="form-control" name="title" value="Job Location">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="mb-4">
                                         <label class="form-label " for="title">Job Category *</label>
                                         <input type="text" class="form-control" name="title" value="Job Category">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label class="form-label " for="title">Search *</label>
+                                        <input type="text" class="form-control" name="title" value="Search">
                                     </div>
                                 </div>
                             </div>
