@@ -19,7 +19,7 @@
 
                     <div class="table-responsive">
                         <table class="table table-bordered" id="example1">
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th width="5%">SL</th>
                                     <th>Category Name</th>
@@ -31,13 +31,16 @@
 
                                 @foreach ($job_categories as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->icon }}</td>
-                                        <td class="pt_10 pb_10">
-                                            <a href="" class="btn btn-success btn-sm">Edit</a>
+                                        <td width="15%" class="text-center">{!! $item->icon !!}</td>
+                                        <td class="pt_10 pb_10 text-center">
+                                            <a href="" class="btn btn-success btn-sm"><i
+                                                    class="fas fa-pencil-alt"></i>
+                                                &nbsp; Edit</a> &nbsp;
                                             <a href="" class="btn btn-danger btn-sm"
-                                                onClick="return confirm('Are you sure?');">Delete</a>
+                                                onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i>
+                                                &nbsp;Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

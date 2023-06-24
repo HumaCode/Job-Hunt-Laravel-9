@@ -1057,7 +1057,9 @@ table tr:hover .table-links {
 
 .page-item.active .page-link {
   background-color: #6777ef;
-  border-color: #6777ef; }
+  border-color: #6777ef; 
+  color: white;
+}
 
 .page-item.disabled .page-link {
   border-color: transparent;

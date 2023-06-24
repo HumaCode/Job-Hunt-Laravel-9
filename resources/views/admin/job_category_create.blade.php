@@ -15,32 +15,40 @@
 
                 <div class="card-body">
 
-                    <form action="" method="POST">
+                    <form action="{{ route('admin_job_category_store') }}" method="POST">
+                        @csrf
 
-                        <form action="" method="post" enctype="multipart/form-data">
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label class="mb-1">Category Name</label>
-                                        <input type="text" class="form-control" name="name" value="">
-                                    </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-1">
+                                    <label class="mb-1">Category Name</label>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        name="name" value="{{ old('name') }}">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label class="mb-1">Category Icon</label>
-                                        <input type="text" class="form-control" name="icon" value="">
-                                    </div>
+                                @error('name')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-1">
+                                    <label class="mb-1">Category Icon</label>
+                                    <input type="text" class="form-control @error('icon') is-invalid @enderror"
+                                        name="icon" value="{{ old('icon') }}">
                                 </div>
+                                @error('icon')
+                                    <span class="text-danger">
+                                        {{ $message }}
+                                    </span>
+                                @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group text-end">
-                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>
-                                    &nbsp;Submit</button>
-                            </div>
-                        </form>
-
+                        <div class="form-group text-end">
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>
+                                &nbsp;Submit</button>
+                        </div>
                     </form>
 
                 </div>

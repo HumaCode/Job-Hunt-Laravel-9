@@ -3,7 +3,7 @@
 
 @section('main_content')
     {{-- <div class="slider" style="background-image: url('/storage/uploads/banner1.jpg')"> --}}
-    <div class="slider" style="background-image: url({{ asset('storage/' . $gmbr) }})">
+    <div class="slider" style="background-image: url({{ asset($gmbr) }})">
         <div class="bg"></div>
         <div class="container">
             <div class="row">
