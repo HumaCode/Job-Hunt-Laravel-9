@@ -34,4 +34,27 @@ class AdminJobCategory extends Controller
 
         return redirect()->back()->with('success', 'Data is saved successfully.');
     }
+
+    public function edit($id)
+    {
+        $jobCategory = JobCategory::findOrFail($id);
+
+        return view('admin.job_category_edit', compact('jobCategory'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $job_category = JobCategory::where('id', $id)->first();
+
+        $request->validate([
+            'name'      => 'required|unique:job_categories,name,' . $id,
+            'icon'      => 'required',
+        ]);
+
+        $job_category->name = $request->name;
+        $job_category->icon = $request->icon;
+        $job_category->save();
+
+        return redirect()->back()->with('success', 'Data is updated successfully.');
+    }
 }

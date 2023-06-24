@@ -46,6 +46,8 @@ Route::middleware(['admin:admin'])->group(function () {
     Route::get('/admin/job-category/view', [AdminJobCategory::class, 'index'])->name('admin_job_category');
     Route::get('/admin/job-category/create', [AdminJobCategory::class, 'create'])->name('admin_job_category_create');
     Route::post('/admin/job-category/store', [AdminJobCategory::class, 'store'])->name('admin_job_category_store');
+    Route::get('/admin/job-category/edit/{id}', [AdminJobCategory::class, 'edit'])->name('admin_job_category_edit');
+    Route::post('/admin/job-category/update/{id}', [AdminJobCategory::class, 'update'])->name('admin_job_category_update');
 
 
     // Profil

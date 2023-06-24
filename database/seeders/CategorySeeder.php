@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Accounting',
-                'icon' => '<i class="fas fa-landmark fs-2"></i>',
+                'icon' => 'fas fa-landmark',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ],
@@ -27,7 +27,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Engineering',
-                'icon' => '<i class="fas fa-magic fs-2"></i>',
+                'icon' => 'fas fa-magic',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ],
@@ -36,7 +36,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Medical',
-                'icon' => '<i class="fas fa-stethoscope fs-2"></i>',
+                'icon' => 'fas fa-stethoscope',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ],
@@ -45,7 +45,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Production',
-                'icon' => '<i class="fas fa-sitemap fs-2"></i>',
+                'icon' => 'fas fa-sitemap',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -54,7 +54,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Data Entry',
-                'icon' => '<i class="fas fa-share-alt fs-2"></i>',
+                'icon' => 'fas fa-share-alt',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -63,7 +63,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Marketing',
-                'icon' => '<i class="fas fa-bullhorn fs-2"></i>',
+                'icon' => 'fas fa-bullhorn',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -72,7 +72,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Technician',
-                'icon' => '<i class="fas fa-street-view fs-2"></i>',
+                'icon' => 'fas fa-street-view',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -81,7 +81,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Security',
-                'icon' => '<i class="fas fa-lock fs-2"></i>',
+                'icon' => 'fas fa-lock',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -90,7 +90,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Garments',
-                'icon' => '<i class="fas fa-users fs-2"></i>',
+                'icon' => 'fas fa-users',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -99,7 +99,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Telecommunication',
-                'icon' => '<i class="fas fa-vector-square fs-2"></i>',
+                'icon' => 'fas fa-vector-square',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -108,7 +108,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Education',
-                'icon' => '<i class="fas fa-user-graduate fs-2"></i>',
+                'icon' => 'fas fa-user-graduate',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]
@@ -117,7 +117,7 @@ class CategorySeeder extends Seeder
         JobCategory::create(
             [
                 'name' => 'Commercial',
-                'icon' => '<i class="fas fa-suitcase fs-2"></i>',
+                'icon' => 'fas fa-suitcase',
                 'created_at' => date('Y-m-d H:i:s', time()),
                 'updated_at' => date('Y-m-d H:i:s', time()),
             ]

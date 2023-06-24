@@ -24,6 +24,7 @@
                                     <th width="5%">SL</th>
                                     <th>Category Name</th>
                                     <th>Category Icon</th>
+                                    <th>Icon Preview</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -33,10 +34,11 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
                                         <td>{{ $item->name }}</td>
-                                        <td width="15%" class="text-center">{!! $item->icon !!}</td>
+                                        <td width="15%">{{ $item->icon }}</td>
+                                        <td width="15%" class="text-center"><i class="{{ $item->icon }} fs-2"></i></td>
                                         <td class="pt_10 pb_10 text-center">
-                                            <a href="" class="btn btn-success btn-sm"><i
-                                                    class="fas fa-pencil-alt"></i>
+                                            <a href="{{ route('admin_job_category_edit', $item->id) }}"
+                                                class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i>
                                                 &nbsp; Edit</a> &nbsp;
                                             <a href="" class="btn btn-danger btn-sm"
                                                 onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i>
