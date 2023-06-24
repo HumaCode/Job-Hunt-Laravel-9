@@ -465,11 +465,12 @@ hr.invoice-above-table {
     margin-right: 4px;
 }
 
-.custom-tab .nav-pill .nav-link {
+.nav-pills .nav-link {
+    /* border-radius: var(--bs-nav-pills-border-radius); */
     background: #d7e3f9;
 }
 
-.custom-tab .nav-pill .nav-link.active {
+.nav-pill .nav-link.active {
     color: #fff !important;
     background-color: #6777ef !important;
 }
