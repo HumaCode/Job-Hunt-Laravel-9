@@ -58,21 +58,16 @@
                                         <div class="col-lg-3">
                                             <div class="form-group">
                                                 <select name="" class="form-select select2">
-                                                    <option value="">
+                                                    <option selected disabled>
                                                         {{ $home_page_data->job_category }}
                                                     </option>
-                                                    <option value="">
-                                                        Accounting
-                                                    </option>
-                                                    <option value="">
-                                                        Customer Support
-                                                    </option>
-                                                    <option value="">
-                                                        Web Design
-                                                    </option>
-                                                    <option value="">
-                                                        Web Development
-                                                    </option>
+
+                                                    @foreach ($job_categories as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
+
                                                 </select>
                                             </div>
                                         </div>
