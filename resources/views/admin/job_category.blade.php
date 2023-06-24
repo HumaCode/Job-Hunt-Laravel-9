@@ -40,8 +40,9 @@
                                             <a href="{{ route('admin_job_category_edit', $item->id) }}"
                                                 class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i>
                                                 &nbsp; Edit</a> &nbsp;
-                                            <a href="" class="btn btn-danger btn-sm"
-                                                onClick="return confirm('Are you sure?');"><i class="fas fa-trash"></i>
+                                            <a href="{{ route('admin_job_category_delete', $item->id) }}"
+                                                class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i
+                                                    class="fas fa-trash"></i>
                                                 &nbsp;Delete</a>
                                         </td>
                                     </tr>
