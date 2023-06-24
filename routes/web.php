@@ -38,6 +38,7 @@ Route::middleware(['admin:admin'])->group(function () {
     Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin_home');
 
     Route::get('/admin/home-page', [AdminHomePageController::class, 'index'])->name('admin_home_page');
+    Route::post('/admin/home-page/update', [AdminHomePageController::class, 'update'])->name('admin_home_page_update');
 
 
     // Profil

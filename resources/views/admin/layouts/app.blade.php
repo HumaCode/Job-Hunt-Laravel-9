@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 
-    <link rel="icon" type="image/png" href="{{  asset('uploads')  }}/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('uploads') }}/favicon.png">
 
     <title>Admin Panel</title>
 
@@ -53,36 +53,35 @@
 
 
     @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    <script>
-        iziToast.error({
-            title: '',
-            position: 'topRight',
-            message: '{{ $error }}',
-        });
-    </script>
-    @endforeach
+        @foreach ($errors->all() as $error)
+            <script>
+                iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ $error }}',
+                });
+            </script>
+        @endforeach
     @endif
 
     @if (session()->get('error'))
-    <script>
-        iziToast.error({
-            position: 'topRight',
-            message: '{{ session()->get('error') }}',
-        });
-    </script>
+        <script>
+            iziToast.error({
+                position: 'topRight',
+                message: '{{ session()->get('error') }}',
+            });
+        </script>
     @endif
 
 
     @if (session()->get('success'))
-    <script>
-        iziToast.success({
-            position: 'topRight',
-            message: '{{ session()->get('success') }}',
-        });
-    </script>
+        <script>
+            iziToast.success({
+                position: 'topRight',
+                message: '{{ session()->get('success') }}',
+            });
+        </script>
     @endif
-
 
 </body>
 
