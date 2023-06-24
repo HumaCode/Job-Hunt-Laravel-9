@@ -22,12 +22,15 @@ class AdminHomePageController extends Controller
         $home_page_data = PageHomeItem::where('id', 1)->first();
 
         $request->validate([
-            'heading'      => 'required',
-            'text'         => 'required',
-            'job_title'    => 'required',
-            'job_category' => 'required',
-            'job_location' => 'required',
-            'search'       => 'required',
+            'heading'                   => 'required',
+            'text'                      => 'required',
+            'job_title'                 => 'required',
+            'job_category'              => 'required',
+            'job_location'              => 'required',
+            'search'                    => 'required',
+            'job_category_heading'      => 'required',
+            'job_category_subheading'   => 'nullable',
+            'job_category_status'       => 'required',
         ]);
 
         if ($request->hasFile('background')) {
@@ -48,12 +51,15 @@ class AdminHomePageController extends Controller
             $home_page_data->background = $request->file('background')->store('public/uploads');
         }
 
-        $home_page_data->heading        = $request->heading;
-        $home_page_data->text           = $request->text;
-        $home_page_data->job_title      = $request->job_title;
-        $home_page_data->job_category   = $request->job_category;
-        $home_page_data->job_location   = $request->job_location;
-        $home_page_data->search         = $request->search;
+        $home_page_data->heading                    = $request->heading;
+        $home_page_data->text                       = $request->text;
+        $home_page_data->job_title                  = $request->job_title;
+        $home_page_data->job_category               = $request->job_category;
+        $home_page_data->job_location               = $request->job_location;
+        $home_page_data->search                     = $request->search;
+        $home_page_data->job_category_heading       = $request->job_category_heading;
+        $home_page_data->job_category_subheading    = $request->job_category_subheading;
+        $home_page_data->job_category_status        = $request->job_category_status;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');
