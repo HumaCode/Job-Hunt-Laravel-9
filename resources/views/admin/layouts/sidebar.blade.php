@@ -25,19 +25,25 @@
                 </ul>
             </li>
 
-            <li class=""><a class="nav-link" href="setting.html" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-custom-class="custom-tooltip" data-bs-title="Setting"><i
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Job
+                        Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class=""><a class="nav-link" href="{{ route('admin_job_category') }}"><i
+                                class="fas fa-angle-right"></i> Job Category</a></li>
+                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Job
+                            Location</a>
+                    </li>
+                </ul>
+            </li>
+
+            {{-- <li class=""><a class="nav-link" href="setting.html" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-custom-class="custom-tooltip" data-bs-title="Setting"><i
                         class="fas fa-hand-point-right"></i>
-                    <span>Setting</span></a></li>
+                    <span>Job Category</span></a></li> --}}
 
-            <li class=""><a class="nav-link" href="form.html"><i class="fas fa-hand-point-right"></i>
-                    <span>Form</span></a></li>
 
-            <li class=""><a class="nav-link" href="table.html"><i class="fas fa-hand-point-right"></i>
-                    <span>Table</span></a></li>
-
-            <li class=""><a class="nav-link" href="invoice.html"><i class="fas fa-hand-point-right"></i>
-                    <span>Invoice</span></a></li>
 
         </ul>
     </aside>

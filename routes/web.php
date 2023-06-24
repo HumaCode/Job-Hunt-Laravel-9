@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminHomePageController;
+use App\Http\Controllers\Admin\AdminJobCategory;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Front\HomeController;
@@ -37,8 +38,12 @@ Route::middleware(['admin:admin'])->group(function () {
 
     Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin_home');
 
+    // home page
     Route::get('/admin/home-page', [AdminHomePageController::class, 'index'])->name('admin_home_page');
     Route::post('/admin/home-page/update', [AdminHomePageController::class, 'update'])->name('admin_home_page_update');
+
+    // category
+    Route::get('/admin/job-category', [AdminJobCategory::class, 'index'])->name('admin_job_category');
 
 
     // Profil
