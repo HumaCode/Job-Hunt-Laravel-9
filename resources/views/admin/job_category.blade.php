@@ -2,6 +2,12 @@
 
 @section('heading', 'Job Category')
 
+@section('button')
+    <a href="{{ route('admin_job_category_create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp; Add
+        Category</a>
+@endsection
+
+
 
 @section('main_content')
 
@@ -10,6 +16,7 @@
             <div class="card">
 
                 <div class="card-body">
+
                     <div class="table-responsive">
                         <table class="table table-bordered" id="example1">
                             <thead>

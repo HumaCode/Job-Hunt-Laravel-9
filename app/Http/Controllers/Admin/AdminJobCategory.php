@@ -14,4 +14,9 @@ class AdminJobCategory extends Controller
 
         return view('admin.job_category', compact('job_categories'));
     }
+
+    public function create()
+    {
+        return view('admin.job_category_create');
+    }
 }
