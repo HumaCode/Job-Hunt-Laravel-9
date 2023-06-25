@@ -94,6 +94,21 @@ class AdminPostController extends Controller
         return redirect()->back()->with('success', 'Data is updated successfully.');
     }
 
+    public function delete($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        if ($post->photo != null) {
+            // unlink
+            Storage::delete($post->photo);
+        }
+
+        Post::where('slug', $slug)->delete();
+
+
+        return redirect()->route('admin_post')->with('success', 'Data is deleted successfully.');
+    }
+
 
     public function checkSlug(Request $request)
     {
