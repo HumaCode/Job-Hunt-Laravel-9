@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\JobCategory;
 use App\Models\PageHomeItem;
+use App\Models\Testimonial;
 use App\Models\WhyChooseItem;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,7 @@ class HomeController extends Controller
             'job_categories'        => JobCategory::take(9)->get(),
             'job_categories_select' => JobCategory::get(),
             'why_choose_item'       => WhyChooseItem::get(),
+            'testimonials'          => Testimonial::get(),
         ];
 
         return view('front.home', $data);
