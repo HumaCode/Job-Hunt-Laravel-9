@@ -46,6 +46,12 @@
                         class="fas fa-hand-point-right"></i>
                     <span>Why Choose Items</span></a></li>
 
+            <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_testimonial') }}" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title=Testimonials"><i
+                        class="fas fa-hand-point-right"></i>
+                    <span>Testimonials</span></a></li>
+
 
 
         </ul>
