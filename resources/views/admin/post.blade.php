@@ -31,7 +31,6 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
                                         <td class="text-center">
-
                                             <img src="{{ $item->photo == null ? asset('dist-front/uploads/banner1.jpg') : \Storage::url($item->photo) }}"
                                                 class="w_150" alt="">
                                         </td>

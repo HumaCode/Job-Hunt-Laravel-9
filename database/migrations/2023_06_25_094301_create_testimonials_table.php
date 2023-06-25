@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('designation');
             $table->text('comment');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

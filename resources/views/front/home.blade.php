@@ -376,7 +376,8 @@
                             @foreach ($testimonials as $testimonial)
                                 <div class="item">
                                     <div class="photo">
-                                        <img src="{{ \Storage::url($testimonial->photo) }}" alt="" />
+                                        <img
+                                            src="{{ $testimonial->photo == null ? asset('dist-front/uploads/t1.jpg') : \Storage::url($testimonial->photo) }}">
                                     </div>
                                     <div class="text">
                                         <h4>{{ $testimonial->name }}</h4>

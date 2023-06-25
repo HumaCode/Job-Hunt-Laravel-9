@@ -23,9 +23,8 @@
                                 <div class="mb-4">
                                     <label class="form-label" for="photo">Photo
                                         *</label> <br>
-
-                                    <img src="{{ \Storage::url($testimonial->photo) }}" alt=""
-                                        class="profile-photo w_200" id="showImage">
+                                    <img src="{{ $testimonial->photo == null ? asset('dist-front/uploads/t1.jpg') : \Storage::url($testimonial->photo) }}"
+                                        class="profile-photo w_200" id="showImage" alt="">
                                 </div>
                             </div>
                             <div class="col-md-6">

@@ -33,7 +33,8 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
                                         <td class="text-center">
-                                            <img src="{{ \Storage::url($item->photo) }}" class="w_150" alt="">
+                                            <img src="{{ $item->photo == null ? asset('dist-front/uploads/t1.jpg') : \Storage::url($item->photo) }}"
+                                                class="w_150" alt="">
                                         </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->designation }}</td>

@@ -20,7 +20,6 @@ class TestimonialSeeder extends Seeder
                 'name'          => 'Robert Krol',
                 'designation'   => 'CEO, ABCERFG Company',
                 'comment'       => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, tempore aut odit rem illum nobis, debitis odio soluta dolorem officiis tenetur sed necessitatibus delectus iusto voluptate velit laudantium eum dicta qui mollitia aspernatur neque unde.',
-                'photo'         => 'public/uploads/t1.jpg',
                 'created_at'    => date('Y-m-d H:i:s', time()),
                 'updated_at'    => date('Y-m-d H:i:s', time()),
             ]
@@ -31,7 +30,6 @@ class TestimonialSeeder extends Seeder
                 'name'          => 'Sal Harvey',
                 'designation'   => 'Director, HIJKLMN Company',
                 'comment'       => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, tempore aut odit rem illum nobis, debitis odio soluta dolorem officiis tenetur sed necessitatibus delectus iusto voluptate velit laudantium eum dicta qui mollitia aspernatur neque unde.',
-                'photo'         => 'public/uploads/t2.jpg',
                 'created_at'    => date('Y-m-d H:i:s', time()),
                 'updated_at'    => date('Y-m-d H:i:s', time()),
             ]

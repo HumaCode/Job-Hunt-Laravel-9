@@ -69,10 +69,8 @@ class AdminTestimonialController extends Controller
         if ($request->hasFile('photo')) {
 
             if ($testimonial->photo != null) {
-                if ($testimonial->photo != 'public/uploads/t2.jpg') {
-                    // unlink
-                    Storage::delete($testimonial->photo);
-                }
+                // unlink
+                Storage::delete($testimonial->photo);
             }
 
             $image      = $request->file('photo');
