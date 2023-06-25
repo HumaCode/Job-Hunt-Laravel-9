@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('page_home_items', function (Blueprint $table) {
             $table->string('testimonial_heading')->nullable()->after('feature_jobs_status');
-            $table->text('testimonial_background')->nullable()->after('testimonial_heading');
+            $table->string('testimonial_background')->nullable()->after('testimonial_heading');
             $table->string('testimonial_status')->nullable()->after('testimonial_background');
         });
     }

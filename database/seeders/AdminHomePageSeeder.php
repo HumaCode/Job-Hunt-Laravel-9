@@ -33,6 +33,8 @@ class AdminHomePageSeeder extends Seeder
             'feature_jobs_heading'      => 'Featured Jobs',
             'feature_jobs_subheading'   => 'Find the awesome jobs that matches your skill',
             'feature_jobs_status'       => 'Show',
+            'testimonial_heading'       => 'Our Happy Clients',
+            'testimonial_status'        => 'Show',
             'created_at'                => date('Y-m-d H:i:s', time()),
             'updated_at'                => date('Y-m-d H:i:s', time()),
         ]);
