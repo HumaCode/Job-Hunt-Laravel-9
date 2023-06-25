@@ -37,8 +37,11 @@ class AdminHomePageController extends Controller
             'feature_jobs_heading'      => 'required',
             'feature_jobs_subheading'   => 'nullable',
             'feature_jobs_status'       => 'required',
+            'testimonial_heading'       => 'required',
+            'testimonial_status'        => 'required',
         ]);
 
+        // search
         if ($request->hasFile('background')) {
 
             $request->validate([
@@ -57,7 +60,7 @@ class AdminHomePageController extends Controller
             $home_page_data->background = $request->file('background')->store('public/uploads');
         }
 
-
+        // why choose
         if ($request->hasFile('why_choose_background')) {
 
             $request->validate([
@@ -75,6 +78,24 @@ class AdminHomePageController extends Controller
 
             $home_page_data->why_choose_background = $request->file('why_choose_background')->store('public/uploads');
         }
+        // testimonial
+        if ($request->hasFile('testimonial_background')) {
+
+            $request->validate([
+                'testimonial_background' => 'nullable|image|mimes:png,jpg|max:5000',
+            ]);
+
+            if ($home_page_data->testimonial_background != null) {
+                // unlink
+                Storage::delete($home_page_data->testimonial_background);
+            }
+
+            $image3      = $request->file('testimonial_background');
+            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image3)->resize(1300, 866);
+
+            $home_page_data->testimonial_background = $request->file('testimonial_background')->store('public/uploads');
+        }
 
         $home_page_data->heading                    = $request->heading;
         $home_page_data->text                       = $request->text;
@@ -91,6 +112,8 @@ class AdminHomePageController extends Controller
         $home_page_data->feature_jobs_heading       = $request->feature_jobs_heading;
         $home_page_data->feature_jobs_subheading    = $request->feature_jobs_subheading;
         $home_page_data->feature_jobs_status        = $request->feature_jobs_status;
+        $home_page_data->testimonial_heading        = $request->testimonial_heading;
+        $home_page_data->testimonial_status         = $request->testimonial_status;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');
