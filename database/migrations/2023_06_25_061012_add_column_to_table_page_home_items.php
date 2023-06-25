@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('page_home_items', function (Blueprint $table) {
             $table->string('why_choose_heading')->nullable()->after('job_category_status');
-            $table->string('why_choose_subheading')->nullable()->after('why_choose_heading');
+            $table->text('why_choose_subheading')->nullable()->after('why_choose_heading');
             $table->string('why_choose_background')->nullable()->after('why_choose_subheading');
             $table->string('why_choose_status')->nullable()->after('why_choose_background');
         });

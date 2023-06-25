@@ -28,8 +28,11 @@
                                         data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2"
                                         aria-selected="false">Job Category</button>
                                     <button class="nav-link mb-1" id="v-pills-3-tab" data-bs-toggle="pill"
-                                        data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-2"
+                                        data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-3"
                                         aria-selected="false">Why Choose Item</button>
+                                    <button class="nav-link mb-1" id="v-pills-4-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-4" type="button" role="tab" aria-controls="v-pills-4"
+                                        aria-selected="false">Feature Job</button>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-6">
@@ -211,6 +214,51 @@
                                             <label class="form-label" for="text">Change Background *</label>
                                             <input type="file" class="form-control" name="why_choose_background"
                                                 id="photo2">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="tab-pane fade" id="v-pills-4" role="tabpanel"
+                                        aria-labelledby="v-pills-4-tab" tabindex="0">
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="feature_jobs_heading">Feature Job
+                                                        Heading
+                                                        *</label>
+                                                    <input type="text" class="form-control"
+                                                        name="feature_jobs_heading"
+                                                        value="{{ $page_home_data->feature_jobs_heading }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="feature_jobs_subheading">Sub Heading
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        name="feature_jobs_subheading"
+                                                        value="{{ $page_home_data->feature_jobs_subheading }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="feature_jobs_status">Status
+                                                        *</label>
+                                                    <select name="feature_jobs_status" id="feature_jobs_status"
+                                                        class="form-control">
+                                                        <option selected disabled> -- Choose --</option>
+                                                        <option value="Show"
+                                                            {{ $page_home_data->feature_jobs_status == 'Show' ? 'selected' : '' }}>
+                                                            Show
+                                                        </option>
+                                                        <option value="Hide"
+                                                            {{ $page_home_data->feature_jobs_status == 'Hide' ? 'selected' : '' }}>
+                                                            Hide
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
 
                                     </div>
