@@ -92,7 +92,7 @@ class AdminTestimonialController extends Controller
     {
         $testimonial = Testimonial::where('id', $id)->first();
 
-        if ($testimonial->photo != 'public/uploads/t2.jpg') {
+        if ($testimonial->photo != null) {
             // unlink
             Storage::delete($testimonial->photo);
         }
