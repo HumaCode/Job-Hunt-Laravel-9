@@ -30,8 +30,8 @@
                                 @foreach ($posts as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
-                                        <td>
-                                            <img src="{{ $item->photo }}" alt="">
+                                        <td class="text-center">
+                                            <img src="{{ \Storage::url($item->photo) }}" class="w_150" alt="">
                                         </td>
                                         <td>{{ $item->title }}</td>
                                         <td class="pt_10 pb_10 text-center">
