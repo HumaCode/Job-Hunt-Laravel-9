@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AdminHomePageSeeder::class,
             WhyChooseItemSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }
