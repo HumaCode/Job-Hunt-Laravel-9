@@ -34,6 +34,9 @@ class AdminHomePageController extends Controller
             'why_choose_heading'        => 'required',
             'why_choose_subheading'     => 'nullable',
             'why_choose_status'         => 'required',
+            'feature_jobs_heading'      => 'required',
+            'feature_jobs_subheading'   => 'nullable',
+            'feature_jobs_status'       => 'required',
         ]);
 
         if ($request->hasFile('background')) {
@@ -85,6 +88,9 @@ class AdminHomePageController extends Controller
         $home_page_data->why_choose_heading         = $request->why_choose_heading;
         $home_page_data->why_choose_subheading      = $request->why_choose_subheading;
         $home_page_data->why_choose_status          = $request->why_choose_status;
+        $home_page_data->feature_jobs_heading       = $request->feature_jobs_heading;
+        $home_page_data->feature_jobs_subheading    = $request->feature_jobs_subheading;
+        $home_page_data->feature_jobs_status        = $request->feature_jobs_status;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');

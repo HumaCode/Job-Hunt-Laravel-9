@@ -28,8 +28,11 @@ class AdminHomePageSeeder extends Seeder
             'job_category_status'       => 'Show',
             'why_choose_heading'        => 'Why Choose Us',
             'why_choose_subheading'     => 'Our Methods to help you build your career in future',
-            'why_choose_background'     => '',
+            // 'why_choose_background'     => '',
             'why_choose_status'         => 'Show',
+            'feature_jobs_heading'      => 'Featured Jobs',
+            'feature_jobs_subheading'   => 'Find the awesome jobs that matches your skill',
+            'feature_jobs_status'       => 'Show',
             'created_at'                => date('Y-m-d H:i:s', time()),
             'updated_at'                => date('Y-m-d H:i:s', time()),
         ]);

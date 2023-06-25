@@ -18,16 +18,17 @@ class HomeController extends Controller
             $gmbr = 'storage/' . substr($home_page_data->background, -52);
             $gmbr2 = 'storage/' . substr($home_page_data->why_choose_background, -52);
         } else {
-            $gmbr = 'dist/uploads/heading5.jpg';
-            $gmbr2 = 'dist/uploads/heading3.jpg';
+            $gmbr = 'dist-front/uploads/heading5.jpg';
+            $gmbr2 = 'dist-front/uploads/banner3.jpg';
         }
 
         $data = [
-            'gmbr'              => $gmbr,
-            'gmbr2'             => $gmbr2,
-            'home_page_data'    => $home_page_data,
-            'job_categories'    => JobCategory::take(9)->get(),
-            'why_choose_item'   => WhyChooseItem::get(),
+            'gmbr'                  => $gmbr,
+            'gmbr2'                 => $gmbr2,
+            'home_page_data'        => $home_page_data,
+            'job_categories'        => JobCategory::take(9)->get(),
+            'job_categories_select' => JobCategory::get(),
+            'why_choose_item'       => WhyChooseItem::get(),
         ];
 
         return view('front.home', $data);
