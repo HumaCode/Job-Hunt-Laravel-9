@@ -348,3 +348,39 @@
     </div>
 
 @endsection
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#photo').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            })
+        })
+
+
+        $(document).ready(function() {
+            $('#photo2').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            })
+        })
+
+        $(document).ready(function() {
+            $('#photo3').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage3').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            })
+        })
+    </script>
+@endpush

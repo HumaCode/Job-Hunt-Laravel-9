@@ -14,4 +14,9 @@ class AdminPostController extends Controller
 
         return view('admin.post', compact('posts'));
     }
+
+    public function create()
+    {
+        return view('admin.post_create');
+    }
 }
