@@ -52,6 +52,11 @@
                         class="fas fa-hand-point-right"></i>
                     <span>Testimonials</span></a></li>
 
+            <li class="{{ Request::is('admin/post/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_post') }}" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title=Posts"><i class="fas fa-hand-point-right"></i>
+                    <span>Posts</span></a></li>
+
 
 
         </ul>
