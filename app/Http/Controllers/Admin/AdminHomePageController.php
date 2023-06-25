@@ -31,6 +31,9 @@ class AdminHomePageController extends Controller
             'job_category_heading'      => 'required',
             'job_category_subheading'   => 'nullable',
             'job_category_status'       => 'required',
+            'why_choose_heading'        => 'required',
+            'why_choose_subheading'     => 'nullable',
+            'why_choose_status'         => 'required',
         ]);
 
         if ($request->hasFile('background')) {
@@ -51,6 +54,25 @@ class AdminHomePageController extends Controller
             $home_page_data->background = $request->file('background')->store('public/uploads');
         }
 
+
+        if ($request->hasFile('why_choose_background')) {
+
+            $request->validate([
+                'why_choose_background' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+            ]);
+
+            if ($home_page_data->why_choose_background != null) {
+                // unlink
+                Storage::delete($home_page_data->why_choose_background);
+            }
+
+            $image2      = $request->file('why_choose_background');
+            // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image2)->resize(1300, 866);
+
+            $home_page_data->why_choose_background = $request->file('why_choose_background')->store('public/uploads');
+        }
+
         $home_page_data->heading                    = $request->heading;
         $home_page_data->text                       = $request->text;
         $home_page_data->job_title                  = $request->job_title;
@@ -60,6 +82,9 @@ class AdminHomePageController extends Controller
         $home_page_data->job_category_heading       = $request->job_category_heading;
         $home_page_data->job_category_subheading    = $request->job_category_subheading;
         $home_page_data->job_category_status        = $request->job_category_status;
+        $home_page_data->why_choose_heading         = $request->why_choose_heading;
+        $home_page_data->why_choose_subheading      = $request->why_choose_subheading;
+        $home_page_data->why_choose_status          = $request->why_choose_status;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');

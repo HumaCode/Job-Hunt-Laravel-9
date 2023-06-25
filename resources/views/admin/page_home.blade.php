@@ -24,9 +24,12 @@
                                     <button class="nav-link active mb-1" id="v-pills-1-tab" data-bs-toggle="pill"
                                         data-bs-target="#v-pills-1" type="button" role="tab" aria-controls="v-pills-1"
                                         aria-selected="true">Search</button>
-                                    <button class="nav-link" id="v-pills-2-tab" data-bs-toggle="pill"
+                                    <button class="nav-link mb-1" id="v-pills-2-tab" data-bs-toggle="pill"
                                         data-bs-target="#v-pills-2" type="button" role="tab" aria-controls="v-pills-2"
                                         aria-selected="false">Job Category</button>
+                                    <button class="nav-link mb-1" id="v-pills-3-tab" data-bs-toggle="pill"
+                                        data-bs-target="#v-pills-3" type="button" role="tab" aria-controls="v-pills-2"
+                                        aria-selected="false">Why Choose Item</button>
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-6">
@@ -89,7 +92,8 @@
                                                             <label class="form-label" for="text">Existing Background
                                                                 *</label>
                                                             <img src="{{ $page_home_data->background == null ? asset('dist/img/noimage.png') : \Storage::url($page_home_data->background) }}"
-                                                                alt="" class="profile-photo w_100_p" id="showImage">
+                                                                alt="" class="profile-photo w_100_p"
+                                                                id="showImage">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -149,6 +153,68 @@
                                         </div>
 
                                     </div>
+
+                                    <div class="tab-pane fade" id="v-pills-3" role="tabpanel"
+                                        aria-labelledby="v-pills-3-tab" tabindex="0">
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="why_choose_heading">Why Choose Heading
+                                                        *</label>
+                                                    <input type="text" class="form-control" name="why_choose_heading"
+                                                        value="{{ $page_home_data->why_choose_heading }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="why_choose_subheading">Why Choose Sub
+                                                        Heading *
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        name="why_choose_subheading"
+                                                        value="{{ $page_home_data->why_choose_subheading }}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-4">
+                                                    <label class="form-label " for="why_choose_status">Status
+                                                        *</label>
+                                                    <select name="why_choose_status" id="why_choose_status"
+                                                        class="form-control">
+                                                        <option selected disabled> -- Choose --</option>
+                                                        <option value="Show"
+                                                            {{ $page_home_data->why_choose_status == 'Show' ? 'selected' : '' }}>
+                                                            Show
+                                                        </option>
+                                                        <option value="Hide"
+                                                            {{ $page_home_data->why_choose_status == 'Hide' ? 'selected' : '' }}>
+                                                            Hide
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-4">
+                                                    <label class="form-label" for="text">Existing Background
+                                                        *</label>
+                                                    <img src="{{ $page_home_data->why_choose_background == null ? asset('dist/img/noimage.png') : \Storage::url($page_home_data->background) }}"
+                                                        alt="" class="profile-photo w_100_p" id="showImage2">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <label class="form-label" for="text">Change Background *</label>
+                                            <input type="file" class="form-control" name="why_choose_background"
+                                                id="photo2">
+                                        </div>
+
+                                    </div>
+
                                 </div>
 
                                 <div class="mb-4">

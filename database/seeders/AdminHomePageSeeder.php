@@ -26,6 +26,10 @@ class AdminHomePageSeeder extends Seeder
             'job_category_heading'      => 'Job Categories',
             'job_category_subheading'   => 'Get the list of all the popular job categories here',
             'job_category_status'       => 'Show',
+            'why_choose_heading'        => 'Why Choose Us',
+            'why_choose_subheading'     => 'Our Methods to help you build your career in future',
+            'why_choose_background'     => '',
+            'why_choose_status'         => 'Show',
             'created_at'                => date('Y-m-d H:i:s', time()),
             'updated_at'                => date('Y-m-d H:i:s', time()),
         ]);
