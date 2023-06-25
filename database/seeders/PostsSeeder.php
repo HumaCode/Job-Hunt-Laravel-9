@@ -50,5 +50,77 @@ class PostsSeeder extends Seeder
                 'updated_at'        => date('Y-m-d H:i:s', time()),
             ]
         );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-4',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-5',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-6',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-7',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-8',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
+
+        Post::create(
+            [
+                'title'             => 'This is a sample blog post title',
+                'slug'              => 'this-is-a-sample-blog-post-title-9',
+                'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
+                'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
+                'total_view'        => 0,
+                'created_at'        => date('Y-m-d H:i:s', time()),
+                'updated_at'        => date('Y-m-d H:i:s', time()),
+            ]
+        );
     }
 }

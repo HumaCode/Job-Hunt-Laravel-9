@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\JobCategoryController;
+use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\TermsController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 Route::get('/job-categories', [JobCategoryController::class, 'category'])->name('job_categories');
+Route::get('/blog', [PostController::class, 'index'])->name('blog');
 
 
 // auth
