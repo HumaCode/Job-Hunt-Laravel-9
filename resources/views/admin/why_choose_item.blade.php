@@ -24,7 +24,7 @@
                                     <th>Icon Preview</th>
                                     <th>Heading</th>
                                     <th>Text</th>
-                                    <th>Action</th>
+                                    <th width="20%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
