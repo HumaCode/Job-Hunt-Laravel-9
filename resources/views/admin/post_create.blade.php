@@ -23,7 +23,7 @@
                                 <div class="form-group mb-1">
                                     <label class="mb-1">Title *</label>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                        name="title" value="{{ old('title') }}">
+                                        name="title" id="title" value="{{ old('title') }}">
                                     @error('title')
                                         <span class="text-danger">
                                             {{ $message }}
@@ -35,7 +35,7 @@
                                 <div class="form-group mb-1">
                                     <label class="mb-1">Slug *</label>
                                     <input type="text" class="form-control @error('slug') is-invalid @enderror"
-                                        name="slug" value="{{ old('slug') }}">
+                                        name="slug" id="slug" value="{{ old('slug') }}" readonly>
                                     @error('slug')
                                         <span class="text-danger">
                                             {{ $message }}
@@ -118,6 +118,16 @@
                 }
                 reader.readAsDataURL(e.target.files['0']);
             })
+        })
+
+        // create otomatis slug
+        const title = document.querySelector('#title');
+        const slug = document.querySelector('#slug');
+
+        title.addEventListener('change', function() {
+            fetch('/admin/post/checkSlug?title=' + title.value)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
         })
     </script>
 @endpush

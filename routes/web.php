@@ -78,6 +78,7 @@ Route::middleware(['admin:admin'])->group(function () {
     Route::get('/admin/post/edit/{id}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
     Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
     Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
+    Route::get('/admin/post/checkSlug', [AdminPostController::class, 'checkSlug']);
 
 
     // Profil
