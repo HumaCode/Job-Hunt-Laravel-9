@@ -42,7 +42,7 @@ class AdminHomePageController extends Controller
         if ($request->hasFile('background')) {
 
             $request->validate([
-                'background' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+                'background' => 'nullable|image|mimes:png,jpg|max:5000',
             ]);
 
             if ($home_page_data->background != null) {
@@ -61,7 +61,7 @@ class AdminHomePageController extends Controller
         if ($request->hasFile('why_choose_background')) {
 
             $request->validate([
-                'why_choose_background' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
+                'why_choose_background' => 'nullable|image|mimes:png,jpg|max:5000',
             ]);
 
             if ($home_page_data->why_choose_background != null) {

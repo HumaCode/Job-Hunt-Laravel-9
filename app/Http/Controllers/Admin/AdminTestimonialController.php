@@ -23,16 +23,18 @@ class AdminTestimonialController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'icon'      => 'required',
-            'heading'   => 'required|unique:why_choose_items,heading',
-            'text'      => 'required',
+            'name'          => 'required',
+            'photo'         => 'required|image|mimes:png,jpg|max:5000',
+            'designation'   => 'required',
+            'comment'       => 'required',
         ]);
 
-        $why_choose = new WhyChooseItem();
-        $why_choose->icon       = $request->icon;
-        $why_choose->heading    = $request->heading;
-        $why_choose->text       = $request->text;
-        $why_choose->save();
+        $testimonial                = new Testimonial();
+        $testimonial->photo         = $request->file('photo')->store('public/uploads');
+        $testimonial->name          = $request->name;
+        $testimonial->designation   = $request->designation;
+        $testimonial->comment       = $request->comment;
+        $testimonial->save();
 
         return redirect()->back()->with('success', 'Data is saved successfully.');
     }

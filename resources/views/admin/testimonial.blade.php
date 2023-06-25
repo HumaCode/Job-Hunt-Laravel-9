@@ -32,11 +32,12 @@
                                 @foreach ($testimonials as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}.</td>
-                                        <td>
-                                            <img src="{{ $item->photo }}" class="w_150" alt="">
+                                        <td class="text-center">
+                                            <img src="{{ \Storage::url($item->photo) }}" class="w_150" alt="">
                                         </td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->designation }}</td>
+                                        <td>{{ $item->comment }}</td>
                                         <td class="pt_10 pb_10 text-center">
                                             <a href="{{ route('admin_testimonial_edit', $item->id) }}"
                                                 class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i>
