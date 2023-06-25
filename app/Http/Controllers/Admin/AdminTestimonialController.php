@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+
 
 class AdminTestimonialController extends Controller
 {
@@ -30,7 +32,13 @@ class AdminTestimonialController extends Controller
         ]);
 
         $testimonial                = new Testimonial();
-        $testimonial->photo         = $request->file('photo')->store('public/uploads');
+
+        $image      = $request->file('photo');
+        // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        Image::make($image)->resize(300, 300);
+
+        $testimonial->photo = $request->file('photo')->store('public/uploads');
+
         $testimonial->name          = $request->name;
         $testimonial->designation   = $request->designation;
         $testimonial->comment       = $request->comment;
