@@ -201,7 +201,7 @@
                                                 <div class="mb-4">
                                                     <label class="form-label" for="text">Existing Background
                                                         *</label>
-                                                    <img src="{{ $page_home_data->why_choose_background == null ? asset('dist/img/noimage.png') : \Storage::url($page_home_data->background) }}"
+                                                    <img src="{{ $page_home_data->why_choose_background == null ? asset('dist/img/noimage.png') : \Storage::url($page_home_data->why_choose_background) }}"
                                                         alt="" class="profile-photo w_100_p" id="showImage2">
                                                 </div>
                                             </div>
