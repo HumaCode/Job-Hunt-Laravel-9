@@ -174,8 +174,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="heading">
-                            <h2>Featured Jobs</h2>
-                            <p>Find the awesome jobs that matches your skill</p>
+                            <h2>{{ $home_page_data->feature_jobs_heading }}</h2>
+                            <p>{{ $home_page_data->feature_jobs_subheading }}</p>
                         </div>
                     </div>
                 </div>
