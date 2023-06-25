@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             AdminSeeder::class,
             AdminHomePageSeeder::class,
+            WhyChooseItemSeeder::class,
         ]);
     }
 }
