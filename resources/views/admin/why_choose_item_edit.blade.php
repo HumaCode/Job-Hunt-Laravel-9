@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('heading', 'Add Why Choose Item')
+@section('heading', 'Edit Why Choose Item')
 
 @section('button')
     <a href="{{ route('admin_why_choose_item') }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i>&nbsp; View
@@ -15,7 +15,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('admin_why_choose_item_store') }}" method="POST">
+                    <form action="{{ route('admin_why_choose_item_update', $why_choose->id) }}" method="POST">
                         @csrf
 
                         <div class="row">
@@ -23,7 +23,7 @@
                                 <div class="form-group mb-1">
                                     <label class="mb-1">Icon *</label>
                                     <input type="text" class="form-control @error('icon') is-invalid @enderror"
-                                        name="icon" value="{{ old('icon') }}">
+                                        name="icon" value="{{ old('icon', $why_choose->icon) }}">
                                 </div>
                                 @error('icon')
                                     <span class="text-danger">
@@ -36,7 +36,7 @@
                                 <div class="form-group mb-1">
                                     <label class="mb-1">Heading *</label>
                                     <input type="text" class="form-control @error('heading') is-invalid @enderror"
-                                        name="heading" value="{{ old('heading') }}">
+                                        name="heading" value="{{ old('heading', $why_choose->heading) }}">
                                 </div>
                                 @error('heading')
                                     <span class="text-danger">
@@ -49,7 +49,7 @@
                         <div class="form-group mb-1">
                             <label class="mb-1">Text *</label>
 
-                            <textarea name="text" id="text" class="form-control h_100 @error('text') is-invalid @enderror" rows="5">{{ old('text') }}</textarea>
+                            <textarea name="text" id="text" class="form-control h_100 @error('text') is-invalid @enderror" rows="5">{{ old('text', $why_choose->text) }}</textarea>
                         </div>
                         @error('text')
                             <span class="text-danger">
@@ -59,7 +59,7 @@
 
                         <div class="form-group text-end my-2">
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>
-                                &nbsp;Submit</button>
+                                &nbsp;Update</button>
                         </div>
                     </form>
 
