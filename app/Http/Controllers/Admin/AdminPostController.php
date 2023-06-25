@@ -12,7 +12,7 @@ class AdminPostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('id', 1)->get();
+        $posts = Post::orderBy('id', 'desc')->get();
 
         return view('admin.post', compact('posts'));
     }

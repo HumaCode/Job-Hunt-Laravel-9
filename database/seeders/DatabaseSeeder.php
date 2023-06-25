@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AdminHomePageSeeder::class,
             WhyChooseItemSeeder::class,
             TestimonialSeeder::class,
+            PostsSeeder::class,
         ]);
     }
 }
