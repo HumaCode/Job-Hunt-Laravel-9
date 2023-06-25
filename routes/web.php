@@ -75,8 +75,8 @@ Route::middleware(['admin:admin'])->group(function () {
     Route::get('/admin/post/view', [AdminPostController::class, 'index'])->name('admin_post');
     Route::get('/admin/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
     Route::post('/admin/post/store', [AdminPostController::class, 'store'])->name('admin_post_store');
-    Route::get('/admin/post/edit/{id}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
-    Route::post('/admin/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
+    Route::get('/admin/post/edit/{slug}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
+    Route::post('/admin/post/update/{slug}', [AdminPostController::class, 'update'])->name('admin_post_update');
     Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
     Route::get('/admin/post/checkSlug', [AdminPostController::class, 'checkSlug']);
 

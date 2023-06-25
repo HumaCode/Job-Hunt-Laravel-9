@@ -22,7 +22,6 @@ class PostsSeeder extends Seeder
                 'short_description' => 'Lorem ipsum dolor sit amet, nibh saperet te pri, at nam diceret disputationi. Quo an consul impedit, usu possim evertitur dissentiet ei.',
                 'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
                 'total_view'        => 0,
-                'photo'             => 'public/uploads/banner1.jpg',
                 'created_at'        => date('Y-m-d H:i:s', time()),
                 'updated_at'        => date('Y-m-d H:i:s', time()),
             ]
@@ -31,11 +30,10 @@ class PostsSeeder extends Seeder
         Post::create(
             [
                 'title'             => 'This is a sample blog post title',
-                'slug'              => 'this-is-a-sample-blog-post-title',
+                'slug'              => 'this-is-a-sample-blog-post-title-2',
                 'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
                 'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
                 'total_view'        => 0,
-                'photo'             => 'public/uploads/banner2.jpg',
                 'created_at'        => date('Y-m-d H:i:s', time()),
                 'updated_at'        => date('Y-m-d H:i:s', time()),
             ]
@@ -44,11 +42,10 @@ class PostsSeeder extends Seeder
         Post::create(
             [
                 'title'             => 'This is a sample blog post title',
-                'slug'              => 'this-is-a-sample-blog-post-title',
+                'slug'              => 'this-is-a-sample-blog-post-title-3',
                 'short_description' => 'Nec in rebum primis causae. Affert iisque ex pri, vis utinam vivendo definitionem ad, nostrum omnes que per et. Omnium antiopam.',
                 'description'       => 'Lorem ipsum dolor sit amet, eos ea dolor commune iudicabit. In dicant dolore adversarium vix. Sed ei magna diceret, id mei possit maiestatis. Iusto detraxit perpetua vis no, duo ea esse adversarium. Eloquentiam reprehendunt et mea, molestie recusabo consetetur at vix.',
                 'total_view'        => 0,
-                'photo'             => 'public/uploads/banner3.jpg',
                 'created_at'        => date('Y-m-d H:i:s', time()),
                 'updated_at'        => date('Y-m-d H:i:s', time()),
             ]

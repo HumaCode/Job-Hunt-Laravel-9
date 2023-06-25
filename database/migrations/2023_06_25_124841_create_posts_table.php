@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('short_description');
             $table->text('description');
             $table->integer('total_view');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
