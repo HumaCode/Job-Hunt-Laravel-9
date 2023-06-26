@@ -14,4 +14,11 @@ class PostController extends Controller
 
         return view('front.blog', compact('posts'));
     }
+
+    public function detail($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        return view('front.post', compact('post'));
+    }
 }
