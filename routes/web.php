@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
+use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\JobCategoryController;
 use App\Http\Controllers\Front\PostController;
@@ -31,6 +32,7 @@ Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 Route::get('/job-categories', [JobCategoryController::class, 'category'])->name('job_categories');
 Route::get('/blog', [PostController::class, 'index'])->name('blog');
 Route::get('/blog/single/{slug}', [PostController::class, 'detail'])->name('blog_single');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 
 
 // auth

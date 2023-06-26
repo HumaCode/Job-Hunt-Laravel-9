@@ -62,6 +62,6 @@ class AdminFaqController extends Controller
     {
         Faq::where('id', $id)->delete();
 
-        return redirect()->route('admin_faq')->with('success', 'Data is deleted successfully.');
+        return redirect()->route('admin_job_category')->with('success', 'Data is deleted successfully.');
     }
 }
