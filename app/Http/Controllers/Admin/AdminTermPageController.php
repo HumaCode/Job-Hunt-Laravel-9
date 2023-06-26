@@ -15,20 +15,22 @@ class AdminTermPageController extends Controller
         return view('admin.page_term', compact('page_term'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $faq_item = PageFaqItem::where('id', $id)->first();
+        $page_term = PageTermItem::where('id', 1)->first();
 
         $request->validate([
             'heading'           => 'required',
+            'content'           => 'required',
             'title'             => 'required',
             'meta_description'  => 'required',
         ]);
 
-        $faq_item->heading          = $request->heading;
-        $faq_item->title            = $request->title;
-        $faq_item->meta_description = $request->meta_description;
-        $faq_item->save();
+        $page_term->heading          = $request->heading;
+        $page_term->content          = $request->content;
+        $page_term->title            = $request->title;
+        $page_term->meta_description = $request->meta_description;
+        $page_term->save();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');
     }
