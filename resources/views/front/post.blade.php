@@ -1,5 +1,12 @@
 @extends('front.layouts.app')
 
+@section('seo_title')
+    {{ $post->title }}
+@endsection
+
+@section('seo_meta_description')
+    {{ $post->meta_description }}
+@endsection
 
 @section('main_content')
     <div class="page-top" style="background-image: url('{{ asset('dist-front/uploads/banner.jpg') }}')">

@@ -28,12 +28,14 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="item">
                             <div class="photo">
-                                <img src="{{ $item->photo == null ? asset('dist-front/uploads/banner1.jpg') : \Storage::url($item->photo) }}"
-                                    class="w_150" alt="">
+                                <a href="{{ route('blog_single', $item->slug) }}">
+                                    <img src="{{ $item->photo == null ? asset('dist-front/uploads/banner1.jpg') : \Storage::url($item->photo) }}"
+                                        class="w_150" alt="">
+                                </a>
                             </div>
                             <div class="text">
                                 <h2>
-                                    <a href="post.html">{{ $item->title }}</a>
+                                    <a href="{{ route('blog_single', $item->slug) }}">{{ $item->heading }}</a>
                                 </h2>
                                 <div class="short-des">
                                     <p>
