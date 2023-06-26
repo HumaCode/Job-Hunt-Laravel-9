@@ -39,6 +39,9 @@ class AdminHomePageController extends Controller
             'feature_jobs_status'       => 'required',
             'testimonial_heading'       => 'required',
             'testimonial_status'        => 'required',
+            'blog_heading'              => 'required',
+            'blog_subheading'           => 'nullable',
+            'blog_status'               => 'required',
         ]);
 
         // search
@@ -114,6 +117,9 @@ class AdminHomePageController extends Controller
         $home_page_data->feature_jobs_status        = $request->feature_jobs_status;
         $home_page_data->testimonial_heading        = $request->testimonial_heading;
         $home_page_data->testimonial_status         = $request->testimonial_status;
+        $home_page_data->blog_heading               = $request->blog_heading;
+        $home_page_data->blog_subheading            = $request->blog_subheading;
+        $home_page_data->blog_status                = $request->blog_status;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');
