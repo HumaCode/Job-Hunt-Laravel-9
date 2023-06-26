@@ -35,6 +35,9 @@ class AdminHomePageSeeder extends Seeder
             'feature_jobs_status'       => 'Show',
             'testimonial_heading'       => 'Our Happy Clients',
             'testimonial_status'        => 'Show',
+            'blog_heading'              => 'Latest News',
+            'blog_subheading'           => 'Check our latest news from the following section',
+            'blog_status'               => 'Show',
             'created_at'                => date('Y-m-d H:i:s', time()),
             'updated_at'                => date('Y-m-d H:i:s', time()),
         ]);

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             WhyChooseItemSeeder::class,
             TestimonialSeeder::class,
             PostsSeeder::class,
+            PageFaqItemSeeder::class,
         ]);
     }
 }
