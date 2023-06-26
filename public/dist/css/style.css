@@ -2982,3 +2982,12 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   100% {
     -webkit-transform: scale(1.2, 1.2);
     opacity: 0.0; } }
+
+
+    h4.seo_section {
+      margin-top: 20px;
+      padding: 5px;
+      background: #ffcfcf;
+      color: #dc3545;
+      font-size: 16px;
+    }

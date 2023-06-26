@@ -21,10 +21,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-1">
-                                    <label class="mb-1">Title *</label>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                        name="title" id="title" value="{{ old('title', $post->title) }}">
-                                    @error('title')
+                                    <label class="mb-1">Heading *</label>
+                                    <input type="text" class="form-control @error('heading') is-invalid @enderror"
+                                        name="heading" id="heading" value="{{ old('heading', $post->heading) }}">
+                                    @error('heading')
                                         <span class="text-danger">
                                             {{ $message }}
                                         </span>
@@ -93,6 +93,32 @@
                             </div>
                         </div>
 
+                        <h4 class="seo_section">SEO SECTION *</h4>
+
+                        <div class="form-group mb-1">
+                            <label class="mb-1">Title *</label>
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
+                                id="title" value="{{ old('title', $post->title) }}">
+                            @error('title')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-1">
+                            <label class="mb-1">Meta Description *</label>
+
+                            <textarea name="meta_description" id="meta_description"
+                                class="form-control h_100 @error('meta_description') is-invalid @enderror" rows="5">{{ old('meta_description', $post->meta_description) }}</textarea>
+                            @error('meta_description')
+                                <span class="text-danger">
+                                    {{ $message }}
+                                </span>
+                            @enderror
+                        </div>
+
+
                         <div class="form-group text-end my-2">
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>
                                 &nbsp;Edit</button>
@@ -120,11 +146,11 @@
         })
 
         // create otomatis slug
-        const title = document.querySelector('#title');
+        const heading = document.querySelector('#heading');
         const slug = document.querySelector('#slug');
 
-        title.addEventListener('change', function() {
-            fetch('/admin/post/checkSlug?title=' + title.value)
+        heading.addEventListener('change', function() {
+            fetch('/admin/post/checkSlug?heading=' + heading.value)
                 .then(response => response.json())
                 .then(data => slug.value = data.slug)
         })

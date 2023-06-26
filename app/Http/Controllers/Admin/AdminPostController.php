@@ -26,11 +26,13 @@ class AdminPostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'             => 'required',
+            'heading'           => 'required',
             'slug'              => 'required',
             'photo'             => 'required|image|mimes:png,jpg|max:5000',
             'short_description' => 'required',
             'description'       => 'required',
+            'title'             => 'required',
+            'meta_description'  => 'required',
         ]);
 
         $post                = new Post();
@@ -41,11 +43,13 @@ class AdminPostController extends Controller
 
         $post->photo = $request->file('photo')->store('public/uploads');
 
-        $post->title                = $request->title;
+        $post->heading              = $request->heading;
         $post->slug                 = $request->slug;
         $post->short_description    = $request->short_description;
         $post->description          = $request->description;
         $post->total_view           = 0;
+        $post->title                = $request->title;
+        $post->meta_description     = $request->meta_description;
         $post->save();
 
         return redirect()->route('admin_post')->with('success', 'Data is saved successfully.');
@@ -60,15 +64,17 @@ class AdminPostController extends Controller
 
     public function update(Request $request, $slug)
     {
-
         $post = Post::where('slug', $slug)->first();
+        $id = $post->id;
 
         $request->validate([
-            'title'             => 'required',
+            'heading'           => 'required|unique:posts,heading,' . $id,
             'slug'              => 'required',
             'photo'             => 'nullable|image|mimes:png,jpg|max:5000',
             'short_description' => 'required',
             'description'       => 'required',
+            'title'             => 'required',
+            'meta_description'  => 'required',
         ]);
 
         if ($request->hasFile('photo')) {
@@ -84,14 +90,15 @@ class AdminPostController extends Controller
             $post->photo = $request->file('photo')->store('public/uploads');
         }
 
-        $post->title                = $request->title;
+        $post->heading              = $request->heading;
         $post->slug                 = $request->slug;
         $post->short_description    = $request->short_description;
         $post->description          = $request->description;
-        $post->total_view           = 0;
+        $post->title                = $request->title;
+        $post->meta_description     = $request->meta_description;
         $post->save();
 
-        return redirect()->back()->with('success', 'Data is updated successfully.');
+        return redirect()->route('admin_post')->with('success', 'Data is updated successfully.');
     }
 
     public function delete($slug)
@@ -113,7 +120,7 @@ class AdminPostController extends Controller
     public function checkSlug(Request $request)
     {
 
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Post::class, 'slug', $request->heading);
 
         return response()->json(['slug' => $slug]);
     }
