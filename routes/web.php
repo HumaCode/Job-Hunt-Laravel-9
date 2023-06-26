@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminJobCategory;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminTermPageController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
 use App\Http\Controllers\Front\FaqController;
@@ -57,11 +58,15 @@ Route::middleware(['admin:admin'])->group(function () {
 
     // faq
     Route::get('/admin/faq-page', [AdminFaqPageController::class, 'index'])->name('admin_faq_page');
-    Route::post('/admin/faq-page/update/{id}', [AdminFaqPageController::class, 'update'])->name('admin_faq_page_update');
+    Route::post('/admin/faq-page/update', [AdminFaqPageController::class, 'update'])->name('admin_faq_page_update');
 
     // faq
     Route::get('/admin/blog-page', [AdminBlogPageController::class, 'index'])->name('admin_blog_page');
     Route::post('/admin/blog-page/update', [AdminBlogPageController::class, 'update'])->name('admin_blog_page_update');
+
+    // faq
+    Route::get('/admin/term-page', [AdminTermPageController::class, 'index'])->name('admin_term_page');
+    Route::post('/admin/term-page/update', [AdminTermPageController::class, 'update'])->name('admin_term_page_update');
 
     // category
     Route::get('/admin/job-category/view', [AdminJobCategory::class, 'index'])->name('admin_job_category');

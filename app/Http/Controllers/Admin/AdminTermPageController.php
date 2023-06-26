@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PageFaqItem;
+use App\Models\PageTermItem;
 use Illuminate\Http\Request;
 
-class AdminFaqPageController extends Controller
+class AdminTermPageController extends Controller
 {
     public function index()
     {
-        $page_faq_data = PageFaqItem::where('id', 1)->first();
+        $page_term = PageTermItem::where('id', 1)->first();
 
-        return view('admin.page_faq', compact('page_faq_data'));
+        return view('admin.page_term', compact('page_term'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $faq_item = PageFaqItem::where('id', 1)->first();
+        $faq_item = PageFaqItem::where('id', $id)->first();
 
         $request->validate([
             'heading'           => 'required',
