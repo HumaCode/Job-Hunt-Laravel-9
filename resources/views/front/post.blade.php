@@ -29,7 +29,7 @@
                 <div class="sub">
                     <div class="item">
                         <b><i class="fa fa-clock-o"></i></b>
-                        25 February, 2022
+                        {{ tanggal_indonesia($post->created_at) }}
                     </div>
                     <div class="item">
                         <b><i class="fa fa-eye"></i></b>
