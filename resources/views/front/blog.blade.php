@@ -34,7 +34,7 @@
                             </p>
                         </div>
                         <div class="button">
-                            <a href="{{ route('post', $item->slug) }}" class="btn btn-primary">Read More</a>
+                            <a href="{{ route('blog_single', $item->slug) }}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>

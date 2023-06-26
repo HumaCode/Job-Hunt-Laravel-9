@@ -31,7 +31,7 @@
                         <li class="nav-item">
                             <a href="faq.html" class="nav-link">FAQ</a>
                         </li>
-                        <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}">
+                        <li class="nav-item {{ Request::is('blog*') ? 'active' : '' }}">
                             <a href="{{ route('blog') }}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item">

@@ -29,7 +29,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 Route::get('/job-categories', [JobCategoryController::class, 'category'])->name('job_categories');
 Route::get('/blog', [PostController::class, 'index'])->name('blog');
-Route::get('/post/{slug}', [PostController::class, 'detail'])->name('post');
+Route::get('/blog/single/{slug}', [PostController::class, 'detail'])->name('blog_single');
 
 
 // auth

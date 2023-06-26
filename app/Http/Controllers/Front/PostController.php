@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -18,6 +19,7 @@ class PostController extends Controller
     public function detail($slug)
     {
         $post = Post::where('slug', $slug)->first();
+        DB::table('posts')->where('slug', $slug)->increment('total_view');
 
         return view('front.post', compact('post'));
     }
