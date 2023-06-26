@@ -34,4 +34,34 @@ class AdminFaqController extends Controller
 
         return redirect()->route('admin_faq')->with('success', 'Data is saved successfully.');
     }
+
+    public function edit($id)
+    {
+        $faq = Faq::findOrFail($id);
+
+        return view('admin.faq_edit', compact('faq'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $faq = Faq::where('id', $id)->first();
+
+        $request->validate([
+            'question'    => 'required',
+            'answer'      => 'required',
+        ]);
+
+        $faq->question  = $request->question;
+        $faq->answer    = $request->answer;
+        $faq->save();
+
+        return redirect()->route('admin_faq')->with('success', 'Data is updated successfully.');
+    }
+
+    public function delete($id)
+    {
+        Faq::where('id', $id)->delete();
+
+        return redirect()->route('admin_faq')->with('success', 'Data is deleted successfully.');
+    }
 }
