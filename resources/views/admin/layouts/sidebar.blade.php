@@ -48,14 +48,19 @@
 
             <li class="{{ Request::is('admin/testimonial/*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin_testimonial') }}" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-custom-class="custom-tooltip" data-bs-title=Testimonials"><i
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Testimonials"><i
                         class="fas fa-hand-point-right"></i>
                     <span>Testimonials</span></a></li>
 
             <li class="{{ Request::is('admin/post/*') ? 'active' : '' }}"><a class="nav-link"
                     href="{{ route('admin_post') }}" data-bs-toggle="tooltip" data-bs-placement="right"
-                    data-bs-custom-class="custom-tooltip" data-bs-title=Posts"><i class="fas fa-hand-point-right"></i>
+                    data-bs-custom-class="custom-tooltip" data-bs-title="Posts"><i class="fas fa-hand-point-right"></i>
                     <span>Posts</span></a></li>
+
+            <li class="{{ Request::is('admin/faq/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('admin_faq') }}" data-bs-toggle="tooltip" data-bs-placement="right"
+                    data-bs-custom-class="custom-tooltip" data-bs-title="FAQ"><i class="fas fa-hand-point-right"></i>
+                    <span>FAQs</span></a></li>
 
 
 
