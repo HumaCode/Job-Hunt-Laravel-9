@@ -1,6 +1,14 @@
 @extends('front.layouts.app')
 
 
+@section('seo_title')
+{{ $faq->title }}
+@endsection
+
+@section('seo_meta_description')
+{{ $faq->meta_description }}
+@endsection
+
 @section('main_content')
 
 <div class="page-top" style="background-image: url('{{ asset('dist-front/uploads/banner.jpg') }}')">
@@ -8,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>FAQ</h2>
+                <h2>{{ $faq->heading }}</h2>
             </div>
         </div>
     </div>

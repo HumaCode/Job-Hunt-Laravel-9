@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminFaqController;
+use App\Http\Controllers\Admin\AdminFaqPageController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminJobCategory;
@@ -52,6 +53,10 @@ Route::middleware(['admin:admin'])->group(function () {
     // home page
     Route::get('/admin/home-page', [AdminHomePageController::class, 'index'])->name('admin_home_page');
     Route::post('/admin/home-page/update', [AdminHomePageController::class, 'update'])->name('admin_home_page_update');
+
+    // faq
+    Route::get('/admin/faq-page', [AdminFaqPageController::class, 'index'])->name('admin_faq_page');
+    Route::post('/admin/faq-page/update/{id}', [AdminFaqPageController::class, 'update'])->name('admin_faq_page_update');
 
     // category
     Route::get('/admin/job-category/view', [AdminJobCategory::class, 'index'])->name('admin_job_category');
