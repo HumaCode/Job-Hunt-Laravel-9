@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTermPageController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\JobCategoryController;
@@ -40,6 +41,8 @@ Route::get('/job-categories', [JobCategoryController::class, 'category'])->name(
 Route::get('/blog', [PostController::class, 'index'])->name('blog');
 Route::get('/blog/single/{slug}', [PostController::class, 'detail'])->name('blog_single');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact_submit');
 
 
 // auth
