@@ -1,13 +1,20 @@
 @extends('front.layouts.app')
 
+@section('seo_title')
+    {{ $job_category_item->title }}
+@endsection
+
+@section('seo_meta_description')
+    {{ $job_category_item->meta_description }}
+@endsection
 
 @section('main_content')
-    <div class="page-top" style="background-image: url('uploads/banner.jpg')">
+    <div class="page-top" style="background-image: url('dist-front/uploads/banner.jpg')">
         <div class="bg"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Job Categories</h2>
+                    <h2>{{ $job_category_item->heading }}</h2>
                 </div>
             </div>
         </div>
