@@ -16,7 +16,7 @@
                     <span>Dashboard</span></a></li>
 
             <li
-                class="nav-item dropdown {{ Request::is('admin/home-page') || Request::is('admin/faq-page') || Request::is('admin/blog-page') || Request::is('admin/term-page') || Request::is('admin/privacy-page') || Request::is('admin/contact-page') ? 'active' : '' }}">
+                class="nav-item dropdown {{ Request::is('admin/home-page') || Request::is('admin/faq-page') || Request::is('admin/blog-page') || Request::is('admin/term-page') || Request::is('admin/privacy-page') || Request::is('admin/contact-page') || Request::is('admin/job-category-page') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Page
                         Settings</span></a>
                 <ul class="dropdown-menu">
@@ -38,6 +38,10 @@
                     </li>
                     <li class="{{ Request::is('admin/contact-page') ? 'active' : '' }}"><a class="nav-link"
                             href="{{ route('admin_contact_page') }}"><i class="fas fa-angle-right"></i> Contact</a>
+                    </li>
+                    <li class="{{ Request::is('admin/job-category-page') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_job_category_page') }}"><i class="fas fa-angle-right"></i> Job
+                            Category</a>
                     </li>
                 </ul>
             </li>
