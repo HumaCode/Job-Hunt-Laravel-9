@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminBlogPageController;
+use App\Http\Controllers\Admin\AdminContactPageController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminFaqPageController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -63,7 +64,7 @@ Route::middleware(['admin:admin'])->group(function () {
     Route::get('/admin/faq-page', [AdminFaqPageController::class, 'index'])->name('admin_faq_page');
     Route::post('/admin/faq-page/update', [AdminFaqPageController::class, 'update'])->name('admin_faq_page_update');
 
-    // faq
+    // blog
     Route::get('/admin/blog-page', [AdminBlogPageController::class, 'index'])->name('admin_blog_page');
     Route::post('/admin/blog-page/update', [AdminBlogPageController::class, 'update'])->name('admin_blog_page_update');
 
@@ -74,6 +75,10 @@ Route::middleware(['admin:admin'])->group(function () {
     // privacy
     Route::get('/admin/privacy-page', [AdminPrivacyPageController::class, 'index'])->name('admin_privacy_page');
     Route::post('/admin/privacy-page/update', [AdminPrivacyPageController::class, 'update'])->name('admin_privacy_page_update');
+
+    // contact
+    Route::get('/admin/contact-page', [AdminContactPageController::class, 'index'])->name('admin_contact_page');
+    Route::post('/admin/contact-page/update', [AdminContactPageController::class, 'update'])->name('admin_contact_page_update');
 
     // category
     Route::get('/admin/job-category/view', [AdminJobCategory::class, 'index'])->name('admin_job_category');
