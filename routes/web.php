@@ -21,6 +21,7 @@ use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\JobCategoryController;
 use App\Http\Controllers\Front\PostController;
+use App\Http\Controllers\Front\PricingController;
 use App\Http\Controllers\Front\PrivacyController;
 use App\Http\Controllers\Front\TermsController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,7 @@ Route::get('/blog/single/{slug}', [PostController::class, 'detail'])->name('blog
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact_submit');
+Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
 
 // auth
