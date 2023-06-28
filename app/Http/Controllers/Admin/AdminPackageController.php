@@ -49,31 +49,43 @@ class AdminPackageController extends Controller
 
     public function edit($id)
     {
-        $faq = Faq::findOrFail($id);
+        $package = Package::findOrFail($id);
 
-        return view('admin.faq_edit', compact('faq'));
+        return view('admin.package_edit', compact('package'));
     }
 
     public function update(Request $request, $id)
     {
-        $faq = Faq::where('id', $id)->first();
+        $package = Package::where('id', $id)->first();
 
         $request->validate([
-            'question'    => 'required',
-            'answer'      => 'required',
+            'package_name' => 'required',
+            'package_price' => 'required',
+            'package_days' => 'required',
+            'package_display_time' => 'required',
+            'total_allowed_jobs' => 'required',
+            'total_allowed_featured_jobs' => 'required',
+            'total_allowed_photos' => 'required',
+            'total_allowed_videos' => 'required',
         ]);
 
-        $faq->question  = $request->question;
-        $faq->answer    = $request->answer;
-        $faq->save();
+        $package->package_name = $request->package_name;
+        $package->package_price = $request->package_price;
+        $package->package_days = $request->package_days;
+        $package->package_display_time = $request->package_display_time;
+        $package->total_allowed_jobs = $request->total_allowed_jobs;
+        $package->total_allowed_featured_jobs = $request->total_allowed_featured_jobs;
+        $package->total_allowed_photos = $request->total_allowed_photos;
+        $package->total_allowed_videos = $request->total_allowed_videos;
+        $package->save();
 
-        return redirect()->route('admin_faq')->with('success', 'Data is updated successfully.');
+        return redirect()->route('admin_package')->with('success', 'Data is updated successfully.');
     }
 
     public function delete($id)
     {
-        Faq::where('id', $id)->delete();
+        Package::where('id', $id)->delete();
 
-        return redirect()->route('admin_job_category')->with('success', 'Data is deleted successfully.');
+        return redirect()->route('admin_package')->with('success', 'Data is deleted successfully.');
     }
 }

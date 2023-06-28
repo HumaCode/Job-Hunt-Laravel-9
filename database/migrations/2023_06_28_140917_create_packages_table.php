@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('package_name');
-            $table->tinyInteger('package_price');
-            $table->tinyInteger('package_days');
+            $table->string('package_price');
+            $table->string('package_days');
             $table->string('package_display_time');
             $table->string('total_allowed_jobs');
             $table->string('total_allowed_featured_jobs');
