@@ -1,8 +1,16 @@
 @extends('front.layouts.app')
 
 
+@section('seo_title')
+    {{ $home_page_data->title }}
+@endsection
+
+@section('seo_meta_description')
+    {{ $home_page_data->meta_description }}
+@endsection
+
 @section('main_content')
-{{-- <div class="slider" style="background-image: url('/storage/uploads/banner1.jpg')"> --}}
+    {{-- <div class="slider" style="background-image: url('/storage/uploads/banner1.jpg')"> --}}
     <div class="slider" style="background-image: url({{ asset($gmbr) }})">
         <div class="bg"></div>
         <div class="container">
@@ -63,9 +71,9 @@
                                                     </option>
 
                                                     @foreach ($job_categories_select as $item)
-                                                    <option value="{{ $item->id }}">
-                                                        {{ $item->name }}
-                                                    </option>
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
                                                     @endforeach
 
                                                 </select>
@@ -88,358 +96,359 @@
     </div>
 
     @if ($home_page_data->job_category_status == 'Show')
-    <div class="job-category">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>{{ $home_page_data->job_category_heading }}</h2>
-                        <p>
-                            {{ $home_page_data->job_category_subheading }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                @foreach ($job_categories as $item)
-                <div class="col-md-4">
-                    <div class="item">
-                        <div class="icon">
-                            <i class="{{ $item->icon }}"></i>
-                        </div>
-                        <h3>{{ $item->name }}</h3>
-                        <p>(5 Open Positions)</p>
-                        <a href=""></a>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="all">
-                        <a href="{{ route('job_categories') }}" class="btn btn-primary">See All Categories</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @else
-    <div class="job-category">
-    </div>
-    @endif
-
-
-    @if ($home_page_data->why_choose_status == 'Show')
-    <div class="why-choose" style="background-image: url({{ asset($gmbr2) }})">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>{{ $home_page_data->why_choose_heading }}</h2>
-                        <p>
-                            {{ $home_page_data->why_choose_subheading }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                @foreach ($why_choose_item as $choose_item)
-                <div class="col-md-4">
-                    <div class="inner">
-                        <div class="icon">
-                            <i class="{{ $choose_item->icon }}"></i>
-                        </div>
-                        <div class="text">
-                            <h2>{{ $choose_item->heading }}</h2>
+        <div class="job-category">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>{{ $home_page_data->job_category_heading }}</h2>
                             <p>
-                                {{ $choose_item->text }}
+                                {{ $home_page_data->job_category_subheading }}
                             </p>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <div class="row">
 
+                    @foreach ($job_categories as $item)
+                        <div class="col-md-4">
+                            <div class="item">
+                                <div class="icon">
+                                    <i class="{{ $item->icon }}"></i>
+                                </div>
+                                <h3>{{ $item->name }}</h3>
+                                <p>(5 Open Positions)</p>
+                                <a href=""></a>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="all">
+                            <a href="{{ route('job_categories') }}" class="btn btn-primary">See All Categories</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    @else
+        <div class="job-category">
+        </div>
+    @endif
+
+
+    @if ($home_page_data->why_choose_status == 'Show')
+        <div class="why-choose" style="background-image: url({{ asset($gmbr2) }})">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>{{ $home_page_data->why_choose_heading }}</h2>
+                            <p>
+                                {{ $home_page_data->why_choose_subheading }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    @foreach ($why_choose_item as $choose_item)
+                        <div class="col-md-4">
+                            <div class="inner">
+                                <div class="icon">
+                                    <i class="{{ $choose_item->icon }}"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>{{ $choose_item->heading }}</h2>
+                                    <p>
+                                        {{ $choose_item->text }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
     @endif
 
 
     @if ($home_page_data->feature_jobs_status == 'Show')
-    <div class="job">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>{{ $home_page_data->feature_jobs_heading }}</h2>
-                        <p>{{ $home_page_data->feature_jobs_subheading }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo1.png') }}" alt="" />
-                        </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">Software Engineer, Google</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Web Development</div>
-                                <div class="location">United States</div>
-                            </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">3 days ago</div>
-                                <div class="budget">$300-$600</div>
-                                <div class="expired">Expired</div>
-                            </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Full Time</div>
-                                <div class="urgent">Urgent</div>
-                            </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark active"></i></a>
-                            </div>
+        <div class="job">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>{{ $home_page_data->feature_jobs_heading }}</h2>
+                            <p>{{ $home_page_data->feature_jobs_subheading }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo2.png') }}" alt="" />
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo1.png') }}" alt="" />
+                            </div>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">Software Engineer, Google</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Web Development</div>
+                                    <div class="location">United States</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">3 days ago</div>
+                                    <div class="budget">$300-$600</div>
+                                    <div class="expired">Expired</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Full Time</div>
+                                    <div class="urgent">Urgent</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark active"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">Web Designer, Amplify</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Web Development</div>
-                                <div class="location">United States</div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo2.png') }}" alt="" />
                             </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">1 day ago</div>
-                                <div class="budget">$1000</div>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">Web Designer, Amplify</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Web Development</div>
+                                    <div class="location">United States</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">1 day ago</div>
+                                    <div class="budget">$1000</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Part Time</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark"></i></a>
+                                </div>
                             </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Part Time</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo3.png') }}" alt="" />
                             </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark"></i></a>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">Laravel Developer, Gimpo</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Web Development</div>
+                                    <div class="location">Canada</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">2 days ago</div>
+                                    <div class="budget">$1000-$3000</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Full Time</div>
+                                    <div class="urgent">Urgent</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo4.png') }}" alt="" />
+                            </div>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">PHP Developer, Kite Solution</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Web Development</div>
+                                    <div class="location">Australia</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">7 hours ago</div>
+                                    <div class="budget">$1800</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Full Time</div>
+                                    <div class="urgent">Urgent</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo5.png') }}" alt="" />
+                            </div>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">Junior Accountant, ABC Media</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Marketing</div>
+                                    <div class="location">Canada</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">2 hours ago</div>
+                                    <div class="budget">$400</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Part Time</div>
+                                    <div class="urgent">Urgent</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="item d-flex justify-content-start">
+                            <div class="logo">
+                                <img src="{{ \Storage::url('uploads/logo6.png') }}" alt="" />
+                            </div>
+                            <div class="text">
+                                <h3>
+                                    <a href="job.html">Sales Manager, Tingshu Limited</a>
+                                </h3>
+                                <div class="detail-1 d-flex justify-content-start">
+                                    <div class="category">Marketing</div>
+                                    <div class="location">Canada</div>
+                                </div>
+                                <div class="detail-2 d-flex justify-content-start">
+                                    <div class="date">9 hours ago</div>
+                                    <div class="budget">$600-$800</div>
+                                </div>
+                                <div class="special d-flex justify-content-start">
+                                    <div class="featured">Featured</div>
+                                    <div class="type">Full Time</div>
+                                    <div class="urgent">Urgent</div>
+                                </div>
+                                <div class="bookmark">
+                                    <a href=""><i class="fas fa-bookmark"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo3.png') }}" alt="" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="all">
+                            <a href="jobs.html" class="btn btn-primary">See All Jobs</a>
                         </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">Laravel Developer, Gimpo</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Web Development</div>
-                                <div class="location">Canada</div>
-                            </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">2 days ago</div>
-                                <div class="budget">$1000-$3000</div>
-                            </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Full Time</div>
-                                <div class="urgent">Urgent</div>
-                            </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo4.png') }}" alt="" />
-                        </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">PHP Developer, Kite Solution</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Web Development</div>
-                                <div class="location">Australia</div>
-                            </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">7 hours ago</div>
-                                <div class="budget">$1800</div>
-                            </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Full Time</div>
-                                <div class="urgent">Urgent</div>
-                            </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo5.png') }}" alt="" />
-                        </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">Junior Accountant, ABC Media</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Marketing</div>
-                                <div class="location">Canada</div>
-                            </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">2 hours ago</div>
-                                <div class="budget">$400</div>
-                            </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Part Time</div>
-                                <div class="urgent">Urgent</div>
-                            </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="item d-flex justify-content-start">
-                        <div class="logo">
-                            <img src="{{ \Storage::url('uploads/logo6.png') }}" alt="" />
-                        </div>
-                        <div class="text">
-                            <h3>
-                                <a href="job.html">Sales Manager, Tingshu Limited</a>
-                            </h3>
-                            <div class="detail-1 d-flex justify-content-start">
-                                <div class="category">Marketing</div>
-                                <div class="location">Canada</div>
-                            </div>
-                            <div class="detail-2 d-flex justify-content-start">
-                                <div class="date">9 hours ago</div>
-                                <div class="budget">$600-$800</div>
-                            </div>
-                            <div class="special d-flex justify-content-start">
-                                <div class="featured">Featured</div>
-                                <div class="type">Full Time</div>
-                                <div class="urgent">Urgent</div>
-                            </div>
-                            <div class="bookmark">
-                                <a href=""><i class="fas fa-bookmark"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="all">
-                        <a href="jobs.html" class="btn btn-primary">See All Jobs</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
     @if ($home_page_data->testimonial_status == 'Show')
-    <div class="testimonial" style="background-image: url({{ asset($gmbr3) }})">
-        <div class="bg"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="main-header">Our Happy Clients</h2>
+        <div class="testimonial" style="background-image: url({{ asset($gmbr3) }})">
+            <div class="bg"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="main-header">Our Happy Clients</h2>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="testimonial-carousel owl-carousel">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="testimonial-carousel owl-carousel">
 
-                        @foreach ($testimonials as $testimonial)
-                        <div class="item">
-                            <div class="photo">
-                                <img
-                                    src="{{ $testimonial->photo == null ? asset('dist-front/uploads/t1.jpg') : \Storage::url($testimonial->photo) }}">
-                            </div>
-                            <div class="text">
-                                <h4>{{ $testimonial->name }}</h4>
-                                <p>{{ $testimonial->designation }}</p>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    {{ $testimonial->comment }}
-                                </p>
-                            </div>
+                            @foreach ($testimonials as $testimonial)
+                                <div class="item">
+                                    <div class="photo">
+                                        <img
+                                            src="{{ $testimonial->photo == null ? asset('dist-front/uploads/t1.jpg') : \Storage::url($testimonial->photo) }}">
+                                    </div>
+                                    <div class="text">
+                                        <h4>{{ $testimonial->name }}</h4>
+                                        <p>{{ $testimonial->designation }}</p>
+                                    </div>
+                                    <div class="description">
+                                        <p>
+                                            {{ $testimonial->comment }}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+
                         </div>
-                        @endforeach
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
     @if ($home_page_data->blog_status == 'Show')
-    <div class="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading">
-                        <h2>{{ $home_page_data->blog_heading }}</h2>
-                        <p>
-                            {{ $home_page_data->blog_subheading }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                @foreach ($posts as $item_post)
-                <div class="col-lg-4 col-md-6">
-                    <div class="item">
-                        <div class="photo">
-                            <img src="{{ $item_post->photo == null ? asset('dist-front/uploads/banner1.jpg') : \Storage::url($item_post->photo) }}"
-                                alt="" />
-                        </div>
-                        <div class="text">
-                            <h2>
-                                <a href="post.html">{{ $item_post->title }}</a>
-                            </h2>
-                            <div class="short-des">
-                                <p>
-                                    {{ $item_post->short_description }}
-                                </p>
-                            </div>
-                            <div class="button">
-                                <a href="{{ route('blog_single', $item_post->slug) }}" class="btn btn-primary">Read
-                                    More</a>
-                            </div>
+        <div class="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading">
+                            <h2>{{ $home_page_data->blog_heading }}</h2>
+                            <p>
+                                {{ $home_page_data->blog_subheading }}
+                            </p>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <div class="row">
 
+                    @foreach ($posts as $item_post)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="item">
+                                <div class="photo">
+                                    <img src="{{ $item_post->photo == null ? asset('dist-front/uploads/banner1.jpg') : \Storage::url($item_post->photo) }}"
+                                        alt="" />
+                                </div>
+                                <div class="text">
+                                    <h2>
+                                        <a href="post.html">{{ $item_post->title }}</a>
+                                    </h2>
+                                    <div class="short-des">
+                                        <p>
+                                            {{ $item_post->short_description }}
+                                        </p>
+                                    </div>
+                                    <div class="button">
+                                        <a href="{{ route('blog_single', $item_post->slug) }}"
+                                            class="btn btn-primary">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
             </div>
         </div>
-    </div>
     @endif
-    @endsection
+@endsection
