@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             PagePrivacyItemSeeder::class,
             PageContactItemSeeder::class,
             PageJobCategoryItemSeeder::class,
+            PackageSeeder::class,
         ]);
     }
 }
