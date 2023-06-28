@@ -17,22 +17,34 @@ class AdminPackageController extends Controller
 
     public function create()
     {
-        return view('admin.faq_create');
+        return view('admin.package_create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'question'    => 'required',
-            'answer'      => 'required',
+            'package_name' => 'required',
+            'package_price' => 'required',
+            'package_days' => 'required',
+            'package_display_time' => 'required',
+            'total_allowed_jobs' => 'required',
+            'total_allowed_featured_jobs' => 'required',
+            'total_allowed_photos' => 'required',
+            'total_allowed_videos' => 'required',
         ]);
 
-        $category = new Faq();
-        $category->question = $request->question;
-        $category->answer = $request->answer;
-        $category->save();
+        $package = new Package();
+        $package->package_name = $request->package_name;
+        $package->package_price = $request->package_price;
+        $package->package_days = $request->package_days;
+        $package->package_display_time = $request->package_display_time;
+        $package->total_allowed_jobs = $request->total_allowed_jobs;
+        $package->total_allowed_featured_jobs = $request->total_allowed_featured_jobs;
+        $package->total_allowed_photos = $request->total_allowed_photos;
+        $package->total_allowed_videos = $request->total_allowed_videos;
+        $package->save();
 
-        return redirect()->route('admin_faq')->with('success', 'Data is saved successfully.');
+        return redirect()->route('admin_package')->with('success', 'Data is saved successfully.');
     }
 
     public function edit($id)
