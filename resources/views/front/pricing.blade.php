@@ -1,13 +1,13 @@
 @extends('front.layouts.app')
 
 
-{{-- @section('seo_title')
-{{ $faq->title }}
+@section('seo_title')
+    {{ $pricing_item->title }}
 @endsection
 
 @section('seo_meta_description')
-{{ $faq->meta_description }}
-@endsection --}}
+    {{ $pricing_item->meta_description }}
+@endsection
 
 @section('main_content')
     <div class="page-top" style="background-image: url('dist-front/uploads/banner.jpg')">
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Pricing</h2>
+                    <h2>{{ $pricing_item->heading }}</h2>
                 </div>
             </div>
         </div>

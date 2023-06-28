@@ -42,6 +42,8 @@ class AdminHomePageController extends Controller
             'blog_heading'              => 'required',
             'blog_subheading'           => 'nullable',
             'blog_status'               => 'required',
+            'title'                     => 'required',
+            'meta_description'          => 'required',
         ]);
 
         // search
@@ -120,6 +122,8 @@ class AdminHomePageController extends Controller
         $home_page_data->blog_heading               = $request->blog_heading;
         $home_page_data->blog_subheading            = $request->blog_subheading;
         $home_page_data->blog_status                = $request->blog_status;
+        $home_page_data->title                      = $request->title;
+        $home_page_data->meta_description           = $request->meta_description;
         $home_page_data->update();
 
         return redirect()->back()->with('success', 'Data is updated successfully.');

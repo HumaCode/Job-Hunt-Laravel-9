@@ -38,6 +38,8 @@ class AdminHomePageSeeder extends Seeder
             'blog_heading'              => 'Latest News',
             'blog_subheading'           => 'Check our latest news from the following section',
             'blog_status'               => 'Show',
+            'title'                     => 'Home',
+            'meta_description'          => 'Home',
             'created_at'                => date('Y-m-d H:i:s', time()),
             'updated_at'                => date('Y-m-d H:i:s', time()),
         ]);
