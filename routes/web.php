@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminJobCategory;
 use App\Http\Controllers\Admin\AdminJobCategoryPageController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminOtherPageController;
 use App\Http\Controllers\Admin\AdminPackageController;
 use App\Http\Controllers\Admin\AdminPostController;
 use App\Http\Controllers\Admin\AdminPricingPageController;
@@ -95,6 +96,10 @@ Route::middleware(['admin:admin'])->group(function () {
     // pricing item
     Route::get('/admin/pricing-page', [AdminPricingPageController::class, 'index'])->name('admin_pricing_page');
     Route::post('/admin/pricing-page/update', [AdminPricingPageController::class, 'update'])->name('admin_pricing_page_update');
+
+    // others
+    Route::get('/admin/other-page', [AdminOtherPageController::class, 'index'])->name('admin_other_page');
+    Route::post('/admin/other-page/update', [AdminOtherPageController::class, 'update'])->name('admin_other_page_update');
 
     // category
     Route::get('/admin/job-category/view', [AdminJobCategory::class, 'index'])->name('admin_job_category');

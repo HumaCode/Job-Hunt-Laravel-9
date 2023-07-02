@@ -1,11 +1,11 @@
 @extends('front.layouts.app')
 
 @section('seo_title')
-    {{ $post->title }}
+    {{ $post->heading }}
 @endsection
 
 @section('seo_meta_description')
-    {{ $post->meta_description }}
+    {{ $post->slug }}
 @endsection
 
 @section('main_content')

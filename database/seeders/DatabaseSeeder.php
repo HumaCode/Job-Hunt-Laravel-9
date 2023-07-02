@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             PageJobCategoryItemSeeder::class,
             PackageSeeder::class,
             PagePricingItemSeeder::class,
+            PageOtherItemSeeder::class,
         ]);
     }
 }
