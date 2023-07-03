@@ -1,11 +1,11 @@
 @extends('front.layouts.app')
 
 @section('seo_title')
-{{ $page_other->login_page_title }}
+{{ $page_other->signup_page_title }}
 @endsection
 
 @section('seo_meta_description')
-{{ $page_other->login_page_meta_description }}
+{{ $page_other->signup_page_meta_description }}
 @endsection
 
 @section('main_content')
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2> {{ $page_other->login_page_heading }}</h2>
+                <h2> {{ $page_other->signup_page_heading }}</h2>
             </div>
         </div>
     </div>
@@ -46,41 +46,67 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab" tabindex="0">
                             <div class="mb-3">
-                                <label for="" class="form-label">Username</label>
+                                <label for="" class="form-label">Candidate Name *</label>
                                 <input type="text" class="form-control" />
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Password</label>
+                                <label for="" class="form-label">Username *</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email Address *</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Password *</label>
+                                <input type="password" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Confirm Password *</label>
                                 <input type="password" class="form-control" />
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary bg-website">
-                                    Login
+                                    Create Account
                                 </button>
-                                <a href="forget-password.html" class="primary-color">Forget Password?</a>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                             aria-labelledby="pills-profile-tab" tabindex="0">
                             <div class="mb-3">
-                                <label for="" class="form-label">Username</label>
+                                <label for="" class="form-label">Company Name *</label>
                                 <input type="text" class="form-control" />
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Password</label>
+                                <label for="" class="form-label">Contact Person Name *</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Username *</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email Address *</label>
+                                <input type="text" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Password *</label>
+                                <input type="password" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Confirm Password *</label>
                                 <input type="password" class="form-control" />
                             </div>
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary bg-website">
-                                    Login
+                                    Create Account
                                 </button>
-                                <a href="forget-password.html" class="primary-color">Forget Password?</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <a href="{{ route('signup') }}" class="primary-color">Don't have an account? Create Account</a>
+                        <a href="{{ route('login') }}" class="primary-color">Existing User? Login Now</a>
                     </div>
                 </div>
             </div>

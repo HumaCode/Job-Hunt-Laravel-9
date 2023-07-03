@@ -51,6 +51,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact_submit');
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/create-account', [LoginController::class, 'create_account'])->name('signup');
 
 
 // auth
