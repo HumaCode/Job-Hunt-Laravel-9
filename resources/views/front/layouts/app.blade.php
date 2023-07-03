@@ -27,7 +27,7 @@
                 <div class="col-md-6 right-side">
                     <ul class="right">
                         <li class="menu">
-                            <a href="{{ route('admin_login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                            <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                         </li>
                         <li class="menu">
                             <a href="signup.html"><i class="fas fa-user"></i> Sign Up</a>
@@ -138,34 +138,34 @@
 
 
     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <script>
-                iziToast.error({
+    @foreach ($errors->all() as $error)
+    <script>
+        iziToast.error({
                     title: '',
                     position: 'topRight',
                     message: '{{ $error }}',
                 });
-            </script>
-        @endforeach
+    </script>
+    @endforeach
     @endif
 
     @if (session()->get('error'))
-        <script>
-            iziToast.error({
+    <script>
+        iziToast.error({
                 position: 'topRight',
                 message: '{{ session()->get('error') }}',
             });
-        </script>
+    </script>
     @endif
 
 
     @if (session()->get('success'))
-        <script>
-            iziToast.success({
+    <script>
+        iziToast.success({
                 position: 'topRight',
                 message: '{{ session()->get('success') }}',
             });
-        </script>
+    </script>
     @endif
 </body>
 
