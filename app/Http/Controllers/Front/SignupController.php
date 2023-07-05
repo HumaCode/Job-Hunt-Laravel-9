@@ -14,4 +14,8 @@ class SignupController extends Controller
 
         return view('front.signup', compact('page_other'));
     }
+
+    public function company_signup_submit(Request $request)
+    {
+    }
 }

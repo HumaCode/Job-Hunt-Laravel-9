@@ -27,6 +27,7 @@ use App\Http\Controllers\Front\LoginController;
 use App\Http\Controllers\Front\PostController;
 use App\Http\Controllers\Front\PricingController;
 use App\Http\Controllers\Front\PrivacyController;
+use App\Http\Controllers\Front\SignupController;
 use App\Http\Controllers\Front\TermsController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/forget-password', [ForgetPasswordController::class, 'index'])->name('forget_password');
 Route::get('/create-account', [LoginController::class, 'create_account'])->name('signup');
 
+Route::post('/company-signup-submit', [SignupController::class, 'company_signup_submit'])->name('company_signup_submit');
 
 // auth
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin_login');
