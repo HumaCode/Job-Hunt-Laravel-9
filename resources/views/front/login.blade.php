@@ -57,7 +57,7 @@
                                 <button type="submit" class="btn btn-primary bg-website">
                                     Login
                                 </button>
-                                <a href="forget-password.html" class="primary-color">Forget Password?</a>
+                                <a href="{{ route('forget_password') }}" class="primary-color">Forget Password?</a>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -74,7 +74,7 @@
                                 <button type="submit" class="btn btn-primary bg-website">
                                     Login
                                 </button>
-                                <a href="forget-password.html" class="primary-color">Forget Password?</a>
+                                <a href="{{ route('forget_password') }}" class="primary-color">Forget Password?</a>
                             </div>
                         </div>
                     </div>
