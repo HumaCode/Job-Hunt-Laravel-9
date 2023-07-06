@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminTermPageController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminWhyChooseController;
+use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FaqController;
 use App\Http\Controllers\Front\ForgetPasswordController;
@@ -56,8 +57,17 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/forget-password', [ForgetPasswordController::class, 'index'])->name('forget_password');
 Route::get('/create-account', [LoginController::class, 'create_account'])->name('signup');
 
+// login company
+Route::post('/company-login-submit', [LoginController::class, 'company_login_submit'])->name('company_login_submit');
+
+// signup company
 Route::post('/company-signup-submit', [SignupController::class, 'company_signup_submit'])->name('company_signup_submit');
 Route::get('/company-signup-verify/{token}/{email}', [SignupController::class, 'company_signup_verify'])->name('company_signup_verify');
+
+Route::middleware(['company:company'])->group(function () {
+    Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
+    Route::get('/company/logout', [CompanyController::class, 'company_logout'])->name('company_logout');
+});
 
 // auth
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin_login');
