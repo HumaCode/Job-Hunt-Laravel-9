@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Websitemail;
 
-
 class SignupController extends Controller
 {
     public function index()
@@ -41,7 +40,7 @@ class SignupController extends Controller
         $company->token            = $token;
         $company->save();
 
-        $verify_link    = url('company_signup_verify' . $token . '/' . $request->email);
+        $verify_link    = url('company-signup-verify/' . $token . '/' .  $request->email);
         $subject        = 'Company signup verification';
         $message        = 'Please click on the following link <br>';
         $message        .= '<a href="' . $verify_link . '">Click Hire<br>';
@@ -52,7 +51,21 @@ class SignupController extends Controller
         return redirect()->route('login')->with('success', 'An email is sent to your email address. You must have to check that and click on the confirmation link to validate');
     }
 
-    public function company_signup_verify()
+    public function company_signup_verify($token, $email)
     {
+
+        $company_data = Company::where('token', $token)->where('email', $email)->first();
+
+        // echo $company_data->company_name;
+
+        if (!$company_data) {
+            return redirect()->route('login')->with('error', 'Your email is verified failed');
+        }
+
+        $company_data->token = '';
+        $company_data->status = 1;
+        $company_data->update();
+
+        return redirect()->route('login')->with('success', 'Your email is verified successully');
     }
 }
