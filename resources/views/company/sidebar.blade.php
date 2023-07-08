@@ -1,10 +1,10 @@
 <div class="card">
     <ul class="list-group list-group-flush">
-        <li class="list-group-item active">
+        <li class="list-group-item {{ Request::is('company/dashboard') ? 'active' : '' }}">
             <a href="{{ route('company_dashboard') }}">Dashboard</a>
         </li>
-        <li class="list-group-item">
-            <a href="company-payment.html">Make Payment</a>
+        <li class="list-group-item {{ Request::is('company/make-payment') ? 'active' : '' }}">
+            <a href="{{ route('company_make_payment') }}">Make Payment</a>
         </li>
         <li class="list-group-item">
             <a href="company-orders.html">Orders</a>

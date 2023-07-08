@@ -93,6 +93,7 @@ Route::middleware(['candidate:candidate'])->group(function () {
 // auth company
 Route::middleware(['company:company'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
+    Route::get('/company/make-payment', [CompanyController::class, 'make_payment'])->name('company_make_payment');
     Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
 });
 

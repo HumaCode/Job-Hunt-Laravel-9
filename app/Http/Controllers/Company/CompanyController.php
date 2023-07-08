@@ -12,4 +12,9 @@ class CompanyController extends Controller
     {
         return view('company.dashboard');
     }
+
+    public function make_payment()
+    {
+        return view('company.make_payment');
+    }
 }
