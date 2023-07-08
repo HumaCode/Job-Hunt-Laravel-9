@@ -36,30 +36,16 @@
                                         <div class="col-lg-3">
                                             <div class="form-group">
                                                 <select name="" class="form-select select2">
-                                                    <option value="">
+                                                    <option selected disabled>
                                                         {{ $home_page_data->job_location }}
                                                     </option>
-                                                    <option value="">
-                                                        Australia
-                                                    </option>
-                                                    <option value="">
-                                                        Bangladesh
-                                                    </option>
-                                                    <option value="">
-                                                        Canada
-                                                    </option>
-                                                    <option value="">
-                                                        China
-                                                    </option>
-                                                    <option value="">
-                                                        India
-                                                    </option>
-                                                    <option value="">
-                                                        United Kingdom
-                                                    </option>
-                                                    <option value="">
-                                                        United States
-                                                    </option>
+
+                                                    @foreach ($job_locations_select as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
+
                                                 </select>
                                             </div>
                                         </div>

@@ -53,7 +53,8 @@
             </li>
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/job-category/*') ? 'active' : '' }}">
+            <li
+                class="nav-item dropdown {{ Request::is('admin/job-category/*') || Request::is('admin/job-location/*') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Job
                         Section</span></a>
                 <ul class="dropdown-menu">

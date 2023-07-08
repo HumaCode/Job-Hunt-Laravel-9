@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\JobCategory;
+use App\Models\JobLocation;
 use App\Models\PageHomeItem;
 use App\Models\Post;
 use App\Models\Testimonial;
@@ -41,6 +42,7 @@ class HomeController extends Controller
             'home_page_data'        => $home_page_data,
             'job_categories'        => JobCategory::take(9)->get(),
             'job_categories_select' => JobCategory::get(),
+            'job_locations_select'  => JobLocation::get(),
             'why_choose_item'       => WhyChooseItem::get(),
             'testimonials'          => Testimonial::get(),
             'posts'                 => Post::orderBy('id', 'desc')->take(3)->get(),
