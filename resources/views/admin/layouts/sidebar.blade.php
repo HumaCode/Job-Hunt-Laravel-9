@@ -61,7 +61,8 @@
                             href="{{ route('admin_job_category') }}"><i class="fas fa-angle-right"></i> Job
                             Category</a>
                     </li>
-                    <li class=""><a class="nav-link" href=""><i class="fas fa-angle-right"></i> Job
+                    <li class="{{ Request::is('admin/job-location/*') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('admin_job_location') }}"><i class="fas fa-angle-right"></i> Job
                             Location</a>
                     </li>
                 </ul>

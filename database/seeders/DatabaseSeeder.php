@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             PackageSeeder::class,
             PagePricingItemSeeder::class,
             PageOtherItemSeeder::class,
+            JobLocationSeeder::class,
         ]);
     }
 }
