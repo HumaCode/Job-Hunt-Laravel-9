@@ -8,6 +8,7 @@ use App\Models\PageOtherItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Websitemail;
+use App\Models\Candidate;
 
 class SignupController extends Controller
 {
@@ -65,6 +66,55 @@ class SignupController extends Controller
         $company_data->token = '';
         $company_data->status = 1;
         $company_data->update();
+
+        return redirect()->route('login')->with('success', 'Your email is verified successully');
+    }
+
+    public function candidate_signup_submit(Request $request)
+    {
+        $request->validate([
+            'name'              => 'required',
+            'username'          => 'required|unique:candidates',
+            'email'             => 'required|email|unique:candidates',
+            'password'          => 'required',
+            'retype_password'   => 'required|same:password',
+        ]);
+
+        $token          = hash('sha256', time());
+
+        $candidate = new Candidate();
+        $candidate->name                = $request->name;
+        $candidate->username            = $request->username;
+        $candidate->email               = $request->email;
+        $candidate->password            = Hash::make($request->password);
+        $candidate->token               = $token;
+        $candidate->save();
+
+        $verify_link    = url('candidate-signup-verify/' . $token . '/' .  $request->email);
+        $subject        = 'Candidate signup verification';
+        $message        = 'Please click on the following link <br>';
+        $message        .= '<a href="' . $verify_link . '">Click Hire<br>';
+
+
+        \Mail::to($request->email)->send(new Websitemail($subject, $message));
+
+        return redirect()->route('login')->with('success', 'An email is sent to your email address. You must have to check that and click on the confirmation link to validate.');
+    }
+
+    public function candidate_signup_verify($token, $email)
+    {
+
+        $candidate_data = Candidate::where('token', $token)->where('email', $email)->first();
+
+        // echo $candidate_data->candidate_name;
+
+        if (!$candidate_data) {
+            return redirect()->route('login')->with('error', 'Your email is verified failed');
+        }
+
+        $candidate_data->token = '';
+        $candidate_data->status = 1;
+        $candidate_data->update();
 
         return redirect()->route('login')->with('success', 'Your email is verified successully');
     }
