@@ -32,25 +32,45 @@
                     <div class="row box-items mb-4">
                         <div class="col-md-4">
                             <div class="box1">
-                                <h4>$19</h4>
-                                <p>Basic</p>
+                                @if ($current_plan == null)
+                                    <strong class="text-danger">No plan is available</strong>
+                                @else
+                                    <h4>$19</h4>
+                                    <p>Basic</p>
+                                @endif
                             </div>
                         </div>
                     </div>
 
-                    <h4>Upgrade Plan (Make Payment)</h4>
+                    <h4>Choose Plan and Make Payment</h4>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <tr>
-                                <td>Pay with PayPal</td>
+                                <td class="w-400">
+                                    <select name="package_id" id="package_id" class="form-control select2">
+                                        <option disabled selected>-- Choose --</option>
+                                        @foreach ($packages as $item)
+                                            <option value="{{ $item->id }}">{{ $item->package_name }} -
+                                                ${{ $item->package_price }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Pay with PayPal</a>
+                                    <button type="submit" class="btn btn-primary">Pay with Paypal</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Pay with Stripe</td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Pay with Card</a>
+                                    <select name="package_id" id="package_id" class="form-control select2">
+                                        <option disabled selected>-- Choose --</option>
+                                        @foreach ($packages as $item)
+                                            <option value="{{ $item->id }}">{{ $item->package_name }} -
+                                                ${{ $item->package_price }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-primary">Pay with Stripe</button>
                                 </td>
                             </tr>
                         </table>
