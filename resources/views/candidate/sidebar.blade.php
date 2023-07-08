@@ -1,34 +1,34 @@
 <div class="card">
     <ul class="list-group list-group-flush">
         <li class="list-group-item active">
-            <a href="{{ route('company_dashboard') }}">Dashboard</a>
+            <a href="{{ route('candidate_dashboard') }}">Dashboard</a>
         </li>
         <li class="list-group-item">
-            <a href="company-payment.html">Make Payment</a>
+            <a href="candidate-applied-jobs.html">Applied Jobs</a>
         </li>
         <li class="list-group-item">
-            <a href="company-orders.html">Orders</a>
+            <a href="candidate-bookmarked-jobs.html">Bookmarked Jobs</a>
         </li>
         <li class="list-group-item">
-            <a href="company-job-add.html">Create Job</a>
+            <a href="candidate-education.html">Education</a>
         </li>
         <li class="list-group-item">
-            <a href="company-jobs.html">All Jobs</a>
+            <a href="candidate-skill.html">Skills</a>
         </li>
         <li class="list-group-item">
-            <a href="company-photos.html">Photos</a>
+            <a href="candidate-experience.html">Work Experience</a>
         </li>
         <li class="list-group-item">
-            <a href="company-videos.html">Videos</a>
+            <a href="candidate-award.html">Awards</a>
         </li>
         <li class="list-group-item">
-            <a href="company-applications.html">Candidate Applications</a>
+            <a href="candidate-edit-profile.html">Edit Profile</a>
         </li>
         <li class="list-group-item">
-            <a href="company-edit-profile.html">Edit Profile</a>
+            <a href="candidate-resume.html">Resume Upload</a>
         </li>
         <li class="list-group-item">
-            <a href="{{ route('company_logout') }}">Logout</a>
+            <a href="{{ route('candidate_logout') }}">Logout</a>
         </li>
     </ul>
 </div>

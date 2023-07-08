@@ -12,11 +12,4 @@ class CandidateController extends Controller
     {
         return view('candidate.dashboard');
     }
-
-    public function candidate_logout()
-    {
-        Auth::guard('candidate')->logout();
-
-        return redirect()->route('login')->with('success', 'Logout has successfully');
-    }
 }

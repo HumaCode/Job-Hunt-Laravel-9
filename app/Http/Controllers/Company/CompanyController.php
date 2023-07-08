@@ -12,11 +12,4 @@ class CompanyController extends Controller
     {
         return view('company.dashboard');
     }
-
-    public function company_logout()
-    {
-        Auth::guard('company')->logout();
-
-        return redirect()->route('login')->with('success', 'Logout has successfully');
-    }
 }

@@ -9,7 +9,7 @@
 @endsection
 
 @section('main_content')
-    <div class="page-top" style="background-image: url('uploads/banner.jpg')">
+    <div class="page-top" style="background-image: url('{{ asset('dist-front/uploads/banner.jpg') }}')">
         <div class="bg"></div>
         <div class="container">
             <div class="row">

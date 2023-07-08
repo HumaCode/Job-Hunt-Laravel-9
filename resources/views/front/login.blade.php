@@ -9,7 +9,7 @@
 @endsection
 
 @section('main_content')
-    <div class="page-top" style="background-image: url('storage/uploads/banner.jpg')">
+    <div class="page-top" style="background-image: url('{{ asset('dist-front/uploads/banner.jpg') }}')">
         <div class="bg"></div>
         <div class="container">
             <div class="row">
@@ -45,21 +45,28 @@
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                 aria-labelledby="pills-home-tab" tabindex="0">
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Username</label>
-                                    <input type="text" class="form-control" />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Password</label>
-                                    <input type="password" class="form-control" />
-                                </div>
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary bg-website">
-                                        Login
-                                    </button>
-                                    <a href="{{ route('company_forget_password') }}" class="primary-color">Forget
-                                        Password?</a>
-                                </div>
+
+                                <form action="{{ route('candidate_login_submit') }}" method="POST">
+                                    @csrf
+
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" name="username" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary bg-website">
+                                            Login
+                                        </button>
+                                        <a href="{{ route('candidate_forget_password') }}" class="primary-color">Forget
+                                            Password?</a>
+                                    </div>
+                                </form>
+
+
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                 aria-labelledby="pills-profile-tab" tabindex="0">
@@ -83,6 +90,7 @@
                                         <a href="{{ route('company_forget_password') }}" class="primary-color">Forget
                                             Password?</a>
                                     </div>
+
                                 </form>
 
                             </div>

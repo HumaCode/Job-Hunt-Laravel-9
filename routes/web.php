@@ -73,7 +73,7 @@ Route::post('/reset-password/company/submit', [ForgetPasswordController::class, 
 // auth company
 Route::middleware(['company:company'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
-    Route::get('/company/logout', [CompanyController::class, 'company_logout'])->name('company_logout');
+    Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
 });
 
 // signup candidate
@@ -81,13 +81,20 @@ Route::post('/candidate-login-submit', [LoginController::class, 'candidate_login
 Route::post('/candidate-signup-submit', [SignupController::class, 'candidate_signup_submit'])->name('candidate_signup_submit');
 Route::get('/candidate-signup-verify/{token}/{email}', [SignupController::class, 'candidate_signup_verify'])->name('candidate_signup_verify');
 
+// reset candidate password
+Route::get('/forget-password/candidate', [ForgetPasswordController::class, 'candidate_forget_password'])->name('candidate_forget_password');
+Route::post('/forget-password/candidate/submit', [ForgetPasswordController::class, 'candidate_forget_password_submit'])->name('candidate_forget_password_submit');
+Route::get('/reset-password/candidate/{token}/{email}', [ForgetPasswordController::class, 'candidate_reset_password'])->name('candidate_reset_password');
+Route::post('/reset-password/candidate/submit', [ForgetPasswordController::class, 'candidate_reset_password_submit'])->name('candidate_reset_password_submit');
+
+
 // auth candidate
 Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/dashboard', [CandidateController::class, 'dashboard'])->name('candidate_dashboard');
-    Route::get('/candidate/logout', [CandidateController::class, 'company_logout'])->name('candidate_logout');
+    Route::get('/candidate/logout', [LoginController::class, 'company_logout'])->name('candidate_logout');
 });
 
-// auth
+// auth admin panel
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin_login');
 Route::post('/admin/login-submit', [AdminLoginController::class, 'login_submit'])->name('admin_login_submit');
 Route::get('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');

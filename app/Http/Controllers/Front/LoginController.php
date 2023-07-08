@@ -16,6 +16,13 @@ class LoginController extends Controller
         return view('front.login', compact('page_other'));
     }
 
+    public function company_logout()
+    {
+        Auth::guard('company')->logout();
+
+        return redirect()->route('login')->with('success', 'Logout has successfully');
+    }
+
     public function company_login_submit(Request $request)
     {
         // dd($request->all());
@@ -36,5 +43,34 @@ class LoginController extends Controller
         } else {
             return redirect()->route('login')->with('error', 'Information is not correct!');
         }
+    }
+
+    public function candidate_login_submit(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+
+        $credential = [
+            'username'     => $request->username,
+            'password'     => $request->password,
+        ];
+
+        if (Auth::guard('candidate')->attempt($credential)) {
+            return redirect()->route('candidate_dashboard')->with('success', 'Login has successfully');
+        } else {
+            return redirect()->route('login')->with('error', 'Information is not correct!');
+        }
+    }
+
+    public function candidate_logout()
+    {
+        Auth::guard('candidate')->logout();
+
+        return redirect()->route('login')->with('success', 'Logout has successfully');
     }
 }
