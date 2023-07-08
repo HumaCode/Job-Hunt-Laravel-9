@@ -96,6 +96,9 @@ Route::middleware(['company:company'])->group(function () {
     Route::get('/company/make-payment', [CompanyController::class, 'make_payment'])->name('company_make_payment');
     Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
 
+    // order
+    Route::get('/company/orders', [CompanyController::class, 'orders'])->name('company_orders');
+
     // payment paypal
     Route::post('/company/paypal/payment', [CompanyController::class, 'paypal'])->name('company_paypal');
     Route::get('/company/paypal/success', [CompanyController::class, 'paypal_success'])->name('company_paypal_success');
