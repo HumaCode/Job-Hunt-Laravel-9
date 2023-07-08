@@ -64,20 +64,24 @@
                                 </tr>
                             </form>
 
-                            <tr>
-                                <td>
-                                    <select name="package_id" id="package_id" class="form-control select2">
-                                        <option disabled selected>-- Choose --</option>
-                                        @foreach ($packages as $item)
-                                            <option value="{{ $item->id }}">{{ $item->package_name }} -
-                                                ${{ $item->package_price }}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary">Pay with Stripe</button>
-                                </td>
-                            </tr>
+                            <form action="{{ route('company_stripe') }}" method="POST">
+                                @csrf
+                                <tr>
+                                    <td>
+                                        <select name="package_id" id="package_id" class="form-control select2">
+                                            <option disabled selected>-- Choose --</option>
+                                            @foreach ($packages as $item)
+                                                <option value="{{ $item->id }}">{{ $item->package_name }} -
+                                                    ${{ $item->package_price }}</option>
+                                            @endforeach
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary">Pay with Stripe</button>
+                                    </td>
+                                </tr>
+                            </form>
+
                         </table>
                     </div>
                 </div>

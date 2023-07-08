@@ -96,10 +96,15 @@ Route::middleware(['company:company'])->group(function () {
     Route::get('/company/make-payment', [CompanyController::class, 'make_payment'])->name('company_make_payment');
     Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
 
-    // payment
+    // payment paypal
     Route::post('/company/paypal/payment', [CompanyController::class, 'paypal'])->name('company_paypal');
     Route::get('/company/paypal/success', [CompanyController::class, 'paypal_success'])->name('company_paypal_success');
     Route::get('/company/paypal/cancel', [CompanyController::class, 'paypal_cancel'])->name('company_paypal_cancel');
+
+    // payment stripe
+    Route::post('/company/stripe/payment', [CompanyController::class, 'stripe'])->name('company_stripe');
+    Route::get('/company/stripe/success', [CompanyController::class, 'stripe_success'])->name('company_stripe_success');
+    Route::get('/company/stripe/cancel', [CompanyController::class, 'stripe_cancel'])->name('company_stripe_cancel');
 });
 
 // auth admin panel
