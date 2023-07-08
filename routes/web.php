@@ -70,11 +70,7 @@ Route::post('/forget-password/company/submit', [ForgetPasswordController::class,
 Route::get('/reset-password/company/{token}/{email}', [ForgetPasswordController::class, 'company_reset_password'])->name('company_reset_password');
 Route::post('/reset-password/company/submit', [ForgetPasswordController::class, 'company_reset_password_submit'])->name('company_reset_password_submit');
 
-// auth company
-Route::middleware(['company:company'])->group(function () {
-    Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
-    Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
-});
+
 
 // signup candidate
 Route::post('/candidate-login-submit', [LoginController::class, 'candidate_login_submit'])->name('candidate_login_submit');
@@ -91,7 +87,13 @@ Route::post('/reset-password/candidate/submit', [ForgetPasswordController::class
 // auth candidate
 Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/dashboard', [CandidateController::class, 'dashboard'])->name('candidate_dashboard');
-    Route::get('/candidate/logout', [LoginController::class, 'company_logout'])->name('candidate_logout');
+    Route::get('/candidate/logout', [LoginController::class, 'candidate_logout'])->name('candidate_logout');
+});
+
+// auth company
+Route::middleware(['company:company'])->group(function () {
+    Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
+    Route::get('/company/logout', [LoginController::class, 'company_logout'])->name('company_logout');
 });
 
 // auth admin panel
