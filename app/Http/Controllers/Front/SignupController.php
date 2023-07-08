@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Websitemail;
 use App\Models\Candidate;
+use Illuminate\Support\Facades\Auth;
 
 class SignupController extends Controller
 {
     public function index()
     {
+        if (Auth::guard('candidate')->check()) {
+            return redirect()->route('candidate_dashboard')->with('error', 'You are logged in!');
+        }
+
+        if (Auth::guard('company')->check()) {
+            return redirect()->route('company_dashboard')->with('error', 'You are logged in!');
+        }
+
         $page_other    = PageOtherItem::where('id', 1)->first();
 
         return view('front.signup', compact('page_other'));

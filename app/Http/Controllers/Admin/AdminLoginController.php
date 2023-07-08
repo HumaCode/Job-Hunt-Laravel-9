@@ -13,6 +13,10 @@ class AdminLoginController extends Controller
 {
     public function index()
     {
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin_home')->with('error', 'You are logged in!');
+        }
+
         return view('admin.login');
     }
 
