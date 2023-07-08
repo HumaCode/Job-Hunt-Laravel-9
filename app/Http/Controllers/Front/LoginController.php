@@ -34,7 +34,7 @@ class LoginController extends Controller
         if (Auth::guard('company')->attempt($credential)) {
             return redirect()->route('company_dashboard')->with('success', 'Login has successfully');
         } else {
-            return redirect()->route('login')->with('error', 'Informasi is not correct!');
+            return redirect()->route('login')->with('error', 'Information is not correct!');
         }
     }
 }

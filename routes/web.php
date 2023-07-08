@@ -56,9 +56,13 @@ Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
 // login company
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/company-login-submit', [LoginController::class, 'company_login_submit'])->name('company_login_submit');
+
+// reset password
 Route::get('/forget-password/company', [ForgetPasswordController::class, 'company_forget_password'])->name('company_forget_password');
 Route::post('/forget-password/company/submit', [ForgetPasswordController::class, 'company_forget_password_submit'])->name('company_forget_password_submit');
-Route::post('/company-login-submit', [LoginController::class, 'company_login_submit'])->name('company_login_submit');
+Route::get('/reset-password/company/{token}/{email}', [ForgetPasswordController::class, 'company_reset_password'])->name('company_reset_password');
+Route::post('/reset-password/company/submit', [ForgetPasswordController::class, 'company_reset_password_submit'])->name('company_reset_password_submit');
 
 // signup company
 Route::get('/create-account', [SignupController::class, 'index'])->name('signup');
