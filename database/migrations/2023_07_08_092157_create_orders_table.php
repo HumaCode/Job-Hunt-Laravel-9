@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('package_id');
             $table->string('order_no');
             $table->string('paid_amount');
-            $table->string('paiment_method');
+            $table->string('payment_method');
             $table->string('start_date');
             $table->string('expire_date');
             $table->string('currently_active');

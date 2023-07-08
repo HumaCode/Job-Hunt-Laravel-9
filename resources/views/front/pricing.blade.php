@@ -31,7 +31,7 @@
                             <div class="card-body">
                                 <h2 class="card-title">{{ $package->package_name }}</h2>
                                 <h3 class="card-price">${{ $package->package_price }}</h3>
-                                <h4 class="card-day">({{ $package->package_days }})</h4>
+                                <h4 class="card-day">({{ $package->package_days }} Days)</h4>
                                 <hr />
                                 <ul class="fa-ul">
                                     <li>
