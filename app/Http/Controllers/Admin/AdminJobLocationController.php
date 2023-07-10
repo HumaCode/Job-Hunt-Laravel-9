@@ -23,7 +23,7 @@ class AdminJobLocationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      => 'required|unique:job_categories,name',
+            'name'      => 'required|unique:job_locations,name',
         ]);
 
         $jobLocation = new JobLocation();

@@ -65,7 +65,7 @@
 
 
                         <li
-                                class="nav-item dropdown {{ Request::is('admin/job-category/*') || Request::is('admin/job-location/*') || Request::is('admin/job-type/*') || Request::is('admin/job-experience/*') ? 'active' : '' }}">
+                                class="nav-item dropdown {{ Request::is('admin/job-category/*') || Request::is('admin/job-location/*') || Request::is('admin/job-type/*') || Request::is('admin/job-experience/*') || Request::is('admin/job-gendere/*') ? 'active' : '' }}">
                                 <a href="#" class="nav-link has-dropdown"><i
                                                 class="fas fa-hand-point-right"></i><span>Job
                                                 Section</span></a>
@@ -89,6 +89,11 @@
                                                         class="nav-link" href="{{ route('admin_job_experience') }}"><i
                                                                 class="fas fa-angle-right"></i> Job
                                                         Experiences</a>
+                                        </li>
+                                        <li class="{{ Request::is('admin/job-gender/*') ? 'active' : '' }}"><a
+                                                        class="nav-link" href="{{ route('admin_job_gender') }}"><i
+                                                                class="fas fa-angle-right"></i> Job
+                                                        Genders</a>
                                         </li>
                                 </ul>
                         </li>
