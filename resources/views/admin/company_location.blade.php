@@ -1,10 +1,11 @@
 @extends('admin.layouts.app')
 
-@section('heading', 'Job Category')
+@section('heading', 'Company Location')
 
 @section('button')
-<a href="{{ route('admin_job_category_create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp; Add
-    Category</a>
+<a href="{{ route('admin_company_location_create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>&nbsp;
+    Add
+    Company Location</a>
 @endsection
 
 
@@ -22,25 +23,21 @@
                         <thead class="text-center">
                             <tr>
                                 <th width="5%">SL</th>
-                                <th>Category Name</th>
-                                <th>Category Icon</th>
-                                <th>Icon Preview</th>
-                                <th>Action</th>
+                                <th>Company Location</th>
+                                <th width="20%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach ($job_categories as $item)
+                            @foreach ($company_locations as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}.</td>
                                 <td>{{ $item->name }}</td>
-                                <td width="15%">{{ $item->icon }}</td>
-                                <td width="15%" class="text-center"><i class="{{ $item->icon }} fs-2"></i></td>
                                 <td class="pt_10 pb_10 text-center">
-                                    <a href="{{ route('admin_job_category_edit', $item->id) }}"
+                                    <a href="{{ route('admin_company_location_edit', $item->id) }}"
                                         class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i>
                                         &nbsp; Edit</a> &nbsp;
-                                    <a href="{{ route('admin_job_category_delete', $item->id) }}"
+                                    <a href="{{ route('admin_company_location_delete', $item->id) }}"
                                         class="btn btn-danger btn-sm" onClick="return confirm('Are you sure?');"><i
                                             class="fas fa-trash"></i>
                                         &nbsp;Delete</a>

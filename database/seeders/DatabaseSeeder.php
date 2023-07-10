@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
             JobExperienceSeeder::class,
             JobGenderSeeder::class,
             JobSalaryRangeSeeder::class,
+            CompanyLocationSeeder::class,
         ]);
     }
 }
