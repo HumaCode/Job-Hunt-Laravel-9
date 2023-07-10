@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             PageOtherItemSeeder::class,
             JobLocationSeeder::class,
             JobTypeSeeder::class,
+            JobExperienceSeeder::class,
         ]);
     }
 }
