@@ -105,7 +105,7 @@
                         </li>
 
                         <li
-                                class="nav-item dropdown {{ Request::is('admin/company-location/*') || Request::is('admin/company-industry/*') ? 'active' : '' }}">
+                                class="nav-item dropdown {{ Request::is('admin/company-location/*') || Request::is('admin/company-industry/*') | Request::is('admin/company-size/*') ? 'active' : '' }}">
                                 <a href="#" class="nav-link has-dropdown"><i
                                                 class="fas fa-hand-point-right"></i><span>Company
                                                 Section</span></a>
@@ -117,6 +117,10 @@
                                         <li class="{{ Request::is('admin/company-industry/*') ? 'active' : '' }}"><a
                                                         class="nav-link" href="{{ route('admin_company_industry') }}"><i
                                                                 class="fas fa-angle-right"></i> Company Industries</a>
+                                        </li>
+                                        <li class="{{ Request::is('admin/company-size/*') ? 'active' : '' }}"><a
+                                                        class="nav-link" href="{{ route('admin_company_size') }}"><i
+                                                                class="fas fa-angle-right"></i> Company Sizes</a>
                                         </li>
                                 </ul>
                         </li>

@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             JobSalaryRangeSeeder::class,
             CompanyLocationSeeder::class,
             CompanyIndustrySeeder::class,
+            CompanySizeSeeder::class,
         ]);
     }
 }
