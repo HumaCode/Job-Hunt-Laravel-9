@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Models\CompanyIndustry;
+use App\Models\CompanyLocation;
+use App\Models\CompanySize;
 use App\Models\Order;
 use App\Models\Package;
 use Illuminate\Http\Request;
@@ -191,5 +195,16 @@ class CompanyController extends Controller
     public function stripe_cancel()
     {
         return redirect()->route('company_make_payment')->with('error', 'Payment is cancelled');
+    }
+
+    public function edit_profile()
+    {
+        $company_profile    = Company::findOrFail(Auth::guard('company')->user()->id);
+        $company_locations  = CompanyLocation::get();
+        $company_sizes      = CompanySize::get();
+        $company_industries = CompanyIndustry::get();
+
+
+        return view('company.edit_profile', compact('company_profile', 'company_locations', 'company_sizes', 'company_industries'));
     }
 }

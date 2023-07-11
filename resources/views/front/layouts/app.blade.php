@@ -27,24 +27,24 @@
                 <div class="col-md-6 right-side">
                     <ul class="right">
                         @if (!Auth::guard('company')->check() && !Auth::guard('candidate')->check())
-                            <li class="menu">
-                                <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
-                            </li>
-                            <li class="menu">
-                                <a href="{{ route('signup') }}"><i class="fas fa-user"></i> Sign Up</a>
-                            </li>
+                        <li class="menu">
+                            <a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        </li>
+                        <li class="menu">
+                            <a href="{{ route('signup') }}"><i class="fas fa-user"></i> Sign Up</a>
+                        </li>
                         @else
-                            @if (Auth::guard('company')->check())
-                                <li class="menu">
-                                    <a href="{{ route('company_dashboard') }}"><i class="fas fa-tachometer-alt"></i>
-                                        Dashboard</a>
-                                </li>
-                            @else
-                                <li class="menu">
-                                    <a href="{{ route('candidate_dashboard') }}"><i class="fas fa-tachometer-alt"></i>
-                                        Dashboard</a>
-                                </li>
-                            @endif
+                        @if (Auth::guard('company')->check())
+                        <li class="menu">
+                            <a href="{{ route('company_dashboard') }}"><i class="fas fa-tachometer-alt"></i>
+                                Dashboard</a>
+                        </li>
+                        @else
+                        <li class="menu">
+                            <a href="{{ route('candidate_dashboard') }}"><i class="fas fa-tachometer-alt"></i>
+                                Dashboard</a>
+                        </li>
+                        @endif
                         @endif
                     </ul>
                 </div>
@@ -150,36 +150,37 @@
 
     @include('front.layouts.scripts_footer')
 
+    @stack('scripts')
 
     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <script>
-                iziToast.error({
+    @foreach ($errors->all() as $error)
+    <script>
+        iziToast.error({
                     title: '',
                     position: 'topRight',
                     message: '{{ $error }}',
                 });
-            </script>
-        @endforeach
+    </script>
+    @endforeach
     @endif
 
     @if (session()->get('error'))
-        <script>
-            iziToast.error({
+    <script>
+        iziToast.error({
                 position: 'topRight',
                 message: '{{ session()->get('error') }}',
             });
-        </script>
+    </script>
     @endif
 
 
     @if (session()->get('success'))
-        <script>
-            iziToast.success({
+    <script>
+        iziToast.success({
                 position: 'topRight',
                 message: '{{ session()->get('success') }}',
             });
-        </script>
+    </script>
     @endif
 </body>
 

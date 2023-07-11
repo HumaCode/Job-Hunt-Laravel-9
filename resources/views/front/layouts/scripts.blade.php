@@ -11,6 +11,8 @@
 <script src="{{ asset('dist-front') }}/js/jquery.waypoints.min.js"></script>
 <script src="{{ asset('dist-front') }}/js/moment.min.js"></script>
 <script src="{{ asset('dist-front') }}/js/jquery.meanmenu.js"></script>
-<script src="tinymce/tinymce.min.js"></script>
+<script src="{{ asset('dist-front') }}/tinymce/tinymce.min.js"></script>
+
+
 
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
