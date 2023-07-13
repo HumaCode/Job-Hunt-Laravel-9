@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('oh_fri')->nullable();
             $table->string('oh_sat')->nullable();
             $table->string('oh_sun')->nullable();
-            $table->string('map_code')->nullable();
+            $table->text('map_code')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
