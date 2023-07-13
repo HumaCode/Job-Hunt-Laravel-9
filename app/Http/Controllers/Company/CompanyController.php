@@ -11,7 +11,11 @@ use App\Models\Order;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Intervention\Image\Facades\Image;
+
 
 class CompanyController extends Controller
 {
@@ -206,5 +210,65 @@ class CompanyController extends Controller
 
 
         return view('company.edit_profile', compact('company_profile', 'company_locations', 'company_sizes', 'company_industries'));
+    }
+
+    public function edit_profile_update(Request $request)
+    {
+
+        // dd($request->file('logo'));
+
+        $company_profile    = Company::findOrFail(Auth::guard('company')->user()->id);
+        $id = $company_profile->id;
+
+        $request->validate(
+            [
+                'company_name' => 'required',
+                'person_name' => 'required',
+                'username' => 'required|unique:companies,username,' . $id,
+                'email' => 'required',
+                'phone' => 'required|unique:companies,phone, ' . $id,
+                'logo' => 'nullable|image|mimes:png,jpg|max:5000',
+            ]
+        );
+
+        if ($request->hasFile('logo')) {
+
+            if ($company_profile->logo != null) {
+                // unlink
+
+                Storage::delete($company_profile->logo);
+            }
+
+            $company_profile->logo = $request->file('logo')->store('public/uploads');
+        }
+
+        $company_profile->company_name = $request->company_name;
+        $company_profile->person_name = $request->person_name;
+        $company_profile->username = $request->username;
+        $company_profile->email = $request->email;
+        $company_profile->phone = $request->phone;
+        $company_profile->address = $request->address;
+        $company_profile->company_country_id = $request->company_country_id;
+        $company_profile->website = $request->website;
+        $company_profile->company_size_id = $request->company_size_id;
+        $company_profile->founded_on = $request->founded_on;
+        $company_profile->company_industry_id = $request->company_industry_id;
+        $company_profile->description = $request->description;
+        $company_profile->oh_mon = $request->oh_mon;
+        $company_profile->oh_tue = $request->oh_tue;
+        $company_profile->oh_wed = $request->oh_wed;
+        $company_profile->oh_thu = $request->oh_thu;
+        $company_profile->oh_fri = $request->oh_fri;
+        $company_profile->oh_sat = $request->oh_sat;
+        $company_profile->oh_sun = $request->oh_sun;
+        $company_profile->map_code = $request->map_code;
+        $company_profile->facebook = $request->facebook;
+        $company_profile->twitter = $request->twitter;
+        $company_profile->linkedin = $request->linkedin;
+        $company_profile->instagram = $request->instagram;
+
+        $company_profile->update();
+
+        return redirect()->back()->with('success', 'Profile updated is successfully');
     }
 }

@@ -119,6 +119,7 @@ Route::middleware(['company:company'])->group(function () {
 
     // profil
     Route::get('/company/edit-profile', [CompanyController::class, 'edit_profile'])->name('company_edit_profile');
+    Route::post('/company/edit-profile/update', [CompanyController::class, 'edit_profile_update'])->name('company_edit_profile_update');
 });
 
 // auth admin panel

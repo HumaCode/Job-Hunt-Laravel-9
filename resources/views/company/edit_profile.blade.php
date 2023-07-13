@@ -29,7 +29,9 @@ Edit Profile
                 @include('company.sidebar')
             </div>
             <div class="col-lg-9 col-md-12">
-                <form action="" method="post">
+                <form action="{{ route('company_edit_profile_update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="">Existing Logo</label>
@@ -93,7 +95,13 @@ Edit Profile
                                     <option selected disabled>-- Choose --</option>
 
                                     @foreach ($company_locations as $item)
+
+                                    @if ($item->id == $company_profile->company_country_id)
+                                    <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                    @else
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
+
                                     @endforeach
                                 </select>
                             </div>
@@ -106,7 +114,11 @@ Edit Profile
                                     <option selected disabled>-- Choose --</option>
 
                                     @foreach ($company_sizes as $item)
+                                    @if ($item->id == $company_profile->company_size_id)
+                                    <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                    @else
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -119,7 +131,11 @@ Edit Profile
                                     <option selected disabled>-- Choose --</option>
 
                                     @foreach ($company_industries as $item)
+                                    @if ($item->id == $company_profile->company_industry_id)
+                                    <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                    @else
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -136,14 +152,17 @@ Edit Profile
                         <div class="col-md-6 mb-3">
                             <label for="">Founded On *</label>
                             <div class="form-group">
-                                <select name="" class="form-control select2">
-                                    <option value="">2018</option>
-                                    <option value="">2019</option>
-                                    <option value="" selected>
-                                        2020
-                                    </option>
-                                    <option value="">2021</option>
-                                    <option value="">2022</option>
+                                <select name="founded_on" class="form-control select2">
+                                    <option selected disabled>-- Choose --</option>
+
+                                    @for ($i = 1980; $i <= date('Y'); $i++) @if ($i==$company_profile->founded_on)
+                                        <option value="{{ $i }}" selected>{{ $i }}</option>
+                                        @else
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                        @endif
+
+                                        @endfor
+
                                 </select>
                             </div>
                             <div class="clearfix"></div>
@@ -161,54 +180,61 @@ Edit Profile
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Monday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_mon" class="form-control"
+                                    value="{{ $company_profile->oh_mon }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Tuesday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_tue" class="form-control"
+                                    value="{{ $company_profile->oh_tue }}" />
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Wednesday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_wed" class="form-control"
+                                    value="{{ $company_profile->oh_wed }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Thursday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_thu" class="form-control"
+                                    value="{{ $company_profile->oh_thu }}" />
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Friday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_fri" class="form-control"
+                                    value="{{ $company_profile->oh_fri }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Saturday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_sat" class="form-control"
+                                    value="{{ $company_profile->oh_sat }}" />
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="">Opening Hour (Sunday)</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="9:00 AM to 5:00 PM" />
+                                <input type="text" name="oh_sun" class="form-control"
+                                    value="{{ $company_profile->oh_sun }}" />
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label for="">Location Map (Google Map Code)</label>
                             <div class="form-group">
-                                <textarea name="" class="form-control h-150" cols="30" rows="10">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799198932!2d-74.25987701513004!3d40.69767006272707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1645362221879!5m2!1sen!2sbd" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
+                                <textarea name="map_code" class="form-control h-150" cols="30" rows="10">
+{{ $company_profile->map_code }}
 </textarea>
                             </div>
                         </div>
@@ -216,26 +242,30 @@ Edit Profile
                         <div class="col-md-6 mb-3">
                             <label for="">Facebook</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="https://www.facebook.com/" />
+                                <input type="text" name="facebook" class="form-control"
+                                    value="{{ $company_profile->facebook }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Twitter</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="https://www.twitter.com/" />
+                                <input type="text" name="twitter" class="form-control"
+                                    value="{{ $company_profile->twitter }}" />
                             </div>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="">Linkedin</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="https://www.linkedin.com/" />
+                                <input type="text" name="linkedin" class="form-control"
+                                    value="{{ $company_profile->linkedin }}" />
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="">Instagram</label>
                             <div class="form-group">
-                                <input type="text" name="" class="form-control" value="https://www.instagram.com/" />
+                                <input type="text" name="instagram" class="form-control"
+                                    value="{{ $company_profile->instagram }}" />
                             </div>
                         </div>
                     </div>
