@@ -275,6 +275,19 @@ class CompanyController extends Controller
 
     public function photos()
     {
+        $order_data = Order::where('company_id', Auth::guard('company')->user()->id)
+            ->where('currently_active', 1)->first();
+
+        // jika belum membeli package
+        if (!$order_data) {
+            return redirect()->back()->with('error', 'Your must have to buy a package first to access this page.');
+        }
+
+        $package_data = Package::where('id', $order_data->package_id)->first();
+        if ($package_data->total_allowed_photos == 0) {
+            return redirect()->back()->with('error', 'Your current packages does not allow to access photo section');
+        }
+
         $photos = CompanyPhoto::where('company_id', Auth::guard('company')->user()->id)->get();
 
         return view('company.photos', compact('photos'));
@@ -282,6 +295,17 @@ class CompanyController extends Controller
 
     public function photos_submit(Request $request)
     {
+        $order_data = Order::where('company_id', Auth::guard('company')->user()->id)
+            ->where('currently_active', 1)->first();
+
+        $package_data = Package::where('id', $order_data->package_id)->first();
+
+        $existing_photo_number =  CompanyPhoto::where('company_id', Auth::guard('company')->user()->id)->count();
+
+        if ($package_data->total_allowed_photos ==  $existing_photo_number) {
+            return redirect()->back()->with('error', 'Maximum number of allowed photos are uploaded. So you have to upgrade your package if you want to add more photos.');
+        }
+
         $request->validate([
             'photo' => [
                 'required',
@@ -293,7 +317,7 @@ class CompanyController extends Controller
                     $height = $image[1];
 
                     // Tambahkan rule validasi untuk lebar dan tinggi gambar
-                    if ($width !== 1400 || $height !== 800) {
+                    if ($width <= 1400 && $height <= 800) {
                         $fail("Image size must be 1400 pixels wide and 800 pixels high.");
                     }
                 },
@@ -313,7 +337,7 @@ class CompanyController extends Controller
         $company->company_id    = Auth::guard('company')->user()->id;
         $company->save();
 
-        return redirect()->back()->with('success', 'Data is saved successfully.');
+        return redirect()->back()->with('success', 'Photo is uploaded successfully.');
     }
 
     public function photos_delete($id)
