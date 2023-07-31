@@ -275,20 +275,34 @@ class CompanyController extends Controller
 
     public function photos()
     {
-        return view('company.photos');
+        $photos = CompanyPhoto::where('company_id', Auth::guard('company')->user()->id)->get();
+
+        return view('company.photos', compact('photos'));
     }
 
     public function photos_submit(Request $request)
     {
         $request->validate([
-            'photo' => 'required|image|mimes:png,jpg'
+            'photo' => [
+                'required',
+                'image',
+                'mimes:png,jpg',
+                function ($attribute, $value, $fail) {
+                    $image = getimagesize($value);
+                    $width = $image[0];
+                    $height = $image[1];
+
+                    // Tambahkan rule validasi untuk lebar dan tinggi gambar
+                    if ($width !== 1400 || $height !== 800) {
+                        $fail("Image size must be 1400 pixels wide and 800 pixels high.");
+                    }
+                },
+            ],
         ]);
 
         $company                = new CompanyPhoto();
 
         $image                  = $request->file('photo');
-        // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        // Image::make($image)->resize(1000, 800);
 
         $img = Image::make($image);
         $img->resize(1393, 750);
@@ -300,5 +314,18 @@ class CompanyController extends Controller
         $company->save();
 
         return redirect()->back()->with('success', 'Data is saved successfully.');
+    }
+
+    public function photos_delete($id)
+    {
+        $companyPhoto = CompanyPhoto::find($id);
+
+        if ($companyPhoto->photo != null) {
+            // unlink
+            Storage::delete($companyPhoto->photo);
+        }
+
+        $companyPhoto->delete();
+        return redirect()->back()->with('success', 'Data is deleted successfully.');
     }
 }

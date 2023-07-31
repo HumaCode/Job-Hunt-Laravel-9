@@ -52,39 +52,29 @@
                 <h4 class="mt-4">Existing Photos</h4>
                 <div class="photo-all">
                     <div class="row">
+
+                        @forelse ($photos as $item)
                         <div class="col-md-6 col-lg-3">
-                            <div class="item">
-                                <a href="{{ asset('dist-front') }}/uploads/photo1.jpg" class="magnific">
-                                    <img src="{{ asset('dist-front') }}/uploads/photo1.jpg" alt="" />
+                            <div class="item mb-1">
+                                <a href="{{ \Storage::url($item->photo) }}" class="magnific">
+                                    <img src="{{ \Storage::url($item->photo) }}" alt="Company Photos" />
                                     <div class="icon">
                                         <i class="fas fa-plus"></i>
                                     </div>
                                     <div class="bg"></div>
                                 </a>
                             </div>
+                            <a href="{{ route('company_photos_delete', $item->id) }}"
+                                class="btn btn-danger btn-sm mt-0 mb-1" onclick="return confirm('Are you sure.?')">
+                                Delete</a>
+                            <hr>
                         </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="item">
-                                <a href="{{ asset('dist-front') }}/uploads/photo2.jpg" class="magnific">
-                                    <img src="{{ asset('dist-front') }}/uploads/photo2.jpg" alt="" />
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                    <div class="bg"></div>
-                                </a>
-                            </div>
+                        @empty
+                        <div class="alert alert-danger text-center">
+                            Data Not Found
                         </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="item">
-                                <a href="{{ asset('dist-front') }}/uploads/photo3.jpg" class="magnific">
-                                    <img src="{{ asset('dist-front') }}/uploads/photo3.jpg" alt="" />
-                                    <div class="icon">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                    <div class="bg"></div>
-                                </a>
-                            </div>
-                        </div>
+                        @endforelse
+
                     </div>
                 </div>
 

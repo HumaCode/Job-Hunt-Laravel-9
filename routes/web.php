@@ -124,6 +124,7 @@ Route::middleware(['company:company'])->group(function () {
     // company photo
     Route::get('/company/photos', [CompanyController::class, 'photos'])->name('company_photos');
     Route::post('/company/photos/submit', [CompanyController::class, 'photos_submit'])->name('company_photos_submit');
+    Route::get('/company/photos/delete/{id}', [CompanyController::class, 'photos_delete'])->name('company_photos_delete');
 });
 
 // auth admin panel
