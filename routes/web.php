@@ -98,7 +98,7 @@ Route::middleware(['candidate:candidate'])->group(function () {
     Route::get('/candidate/logout', [LoginController::class, 'candidate_logout'])->name('candidate_logout');
 });
 
-// auth company
+// route company
 Route::middleware(['company:company'])->group(function () {
     Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
     Route::get('/company/make-payment', [CompanyController::class, 'make_payment'])->name('company_make_payment');
@@ -120,6 +120,10 @@ Route::middleware(['company:company'])->group(function () {
     // profil
     Route::get('/company/edit-profile', [CompanyController::class, 'edit_profile'])->name('company_edit_profile');
     Route::post('/company/edit-profile/update', [CompanyController::class, 'edit_profile_update'])->name('company_edit_profile_update');
+
+    // company photo
+    Route::get('/company/photos', [CompanyController::class, 'photos'])->name('company_photos');
+    Route::post('/company/photos/submit', [CompanyController::class, 'photos_submit'])->name('company_photos_submit');
 });
 
 // auth admin panel

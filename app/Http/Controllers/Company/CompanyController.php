@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\CompanyIndustry;
 use App\Models\CompanyLocation;
+use App\Models\CompanyPhoto;
 use App\Models\CompanySize;
 use App\Models\Order;
 use App\Models\Package;
@@ -270,5 +271,34 @@ class CompanyController extends Controller
         $company_profile->update();
 
         return redirect()->back()->with('success', 'Profile updated is successfully');
+    }
+
+    public function photos()
+    {
+        return view('company.photos');
+    }
+
+    public function photos_submit(Request $request)
+    {
+        $request->validate([
+            'photo' => 'required|image|mimes:png,jpg'
+        ]);
+
+        $company                = new CompanyPhoto();
+
+        $image                  = $request->file('photo');
+        // $name_gen   = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        // Image::make($image)->resize(1000, 800);
+
+        $img = Image::make($image);
+        $img->resize(1393, 750);
+        $img->save(storage_path('app/public/company_photo/' . $image->hashName()));
+        $photo_name = 'public/company_photo/' . $image->hashName();
+
+        $company->photo         = $photo_name;
+        $company->company_id    = Auth::guard('company')->user()->id;
+        $company->save();
+
+        return redirect()->back()->with('success', 'Data is saved successfully.');
     }
 }
